@@ -27,6 +27,16 @@
   <script>
     $(document).ready(function(){
       $('#city').multiselect();
+      $('.about-slider__holder').carouFredSel({
+        responsive: true,
+        pagination: '.about-slider__pager',
+        width: "100%",
+        scroll: {
+          duration: 450,
+          timeoutDuration: 9000,
+          fx: 'crossfade',
+        }
+      });
     });
   </script>
 </head>
@@ -83,7 +93,7 @@
     </header>
     <div class="content">
       <section class="main-screen">
-        <div class="holder">
+        <div class="holder clearfix">
           <div class="switcher">
             <div class="main-screen__control">
               <a href="#" class="main-screen__catalog-btn"><i class="icon-ham"></i>Каталог
@@ -91,11 +101,179 @@
                 <li class="switcher__btn switcher__btn_active"><a href="#">О нас</a>
                 </li><li class="switcher__btn"><a href="#">Скидки</a>
                 </li><li class="switcher__btn"><a href="#">Акции</a></li>
-              </ul><div class="main-screen__search">
+              </ul>
+              <div class="main-screen__search">
                 <form action="" class="main-screen__search-form">
                   <button id="search-btn" class="main-screen__search-btn iconize-lens"></button><div class="main-screen__search-wrap"><input class="main-screen__search-input" id="search-input" type="text" value="" placeholder="Поиск"/></div>
                 </form>
               </div>
+              <ul class="switcher__control main-screen__switcher main-screen__switcher_2">
+                <li class="switcher__btn switcher__btn_active"><a href="#">О нас</a>
+                </li><li class="switcher__btn"><a href="#">Скидки</a>
+                </li><li class="switcher__btn"><a href="#">Акции</a></li>
+              </ul>
+            </div>
+            <div class="switcher__holder switcher__holder_active">
+              <div class="about-slider">
+                <div class="about-slider__wrap">
+                  <div class="about-slider__holder">
+                    <div class="about-slider__item">
+                      <img src="f/i/about-slider/1.jpg" alt="">
+                      <div class="about-slider__content">
+                        <p class="about-slider__title">Консультация, расчет и поставка стеновых и кровельных материалов</p>
+                        <p class="about-slider__text">для частных лиц и крупных предприятий</p>
+                      </div>
+                    </div>
+                    <div class="about-slider__item">
+                      <img src="f/i/about-slider/1.jpg" alt="">
+                      <div class="about-slider__content">
+                        <p class="about-slider__title">Консультация, расчет и поставка стеновых и кровельных материалов</p>
+                        <p class="about-slider__text">для частных лиц и крупных предприятий</p>
+                      </div>
+                    </div>
+                    <div class="about-slider__item">
+                      <img src="f/i/about-slider/1.jpg" alt="">
+                      <div class="about-slider__content">
+                        <p class="about-slider__title">Консультация, расчет и поставка стеновых и кровельных материалов</p>
+                        <p class="about-slider__text">для частных лиц и крупных предприятий</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="about-slider__pager"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="achiv">
+        <div class="holder">
+          <div class="achiv__holder">          
+            <div class="achiv__item">
+              <img src="f/i/achiv/1.png" alt="" class="achiv__ico">
+              <p class="achiv__num">13</p>
+              <p class="achiv__name">лет опыта</p>
+              <p class="achiv__text">поставки строительных материалов и выполнения строительных работ</p>
+            </div>
+            <div class="achiv__item">
+              <img src="f/i/achiv/2.png" alt="" class="achiv__ico">
+              <p class="achiv__num">1000</p>
+              <p class="achiv__name">наименовений</p>
+              <p class="achiv__text">материалов на складе в наличии и под заказ</p>
+            </div>
+            <div class="achiv__item">
+              <img src="f/i/achiv/3.png" alt="" class="achiv__ico">
+              <p class="achiv__num">300</p>
+              <p class="achiv__name">объектов</p>
+              <p class="achiv__text">обеспечены комплексными поставками строительных материалов</p>
+            </div>
+            <div class="achiv__item">
+              <img src="f/i/achiv/4.png" alt="" class="achiv__ico">
+              <p class="achiv__num">700000<span>м<sup>2</sup></span></p>
+              <p class="achiv__name">кровли</p>
+              <p class="achiv__text">смонтировано нашей командой профессионалов</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="catalog-list">
+        <div class="holder">
+          <p class="catalog-list__title">Каталог</p>
+          <div class="switcher">
+            <ul class="switcher__control switcher__control_orange switcher__control_wide catalog-list__switcher">
+              <li class="switcher__btn switcher__btn_active"><a href="#">По материалам</a>
+              </li><li class="switcher__btn"><a href="#">По конструкциям</a>
+              </li><li class="switcher__btn"><a href="#">По брендам</a></li>
+            </ul>
+            <div class="switcher__holder switcher__holder_active catalog-list__holder">
+              <div class="catalog-list__item">
+                <div class="catalog-list__img">
+                  <img src="f/i/catalog-list/1.png" alt="">
+                </div>
+                <p class="catalog-list__section">Кровельные <br> материалы</p>
+                <ul class="catalog-list__links">
+                  <li><a href="#">Скатные кровли</a></li>
+                  <li><a href="#">Мансардные окна</a></li>
+                  <li><a href="#">Плоские кровли</a></li>
+                  <li><a href="#">Дымоудаление и зенитные фонари</a></li>
+                </ul>
+              </div><div class="catalog-list__item">
+                <div class="catalog-list__img">
+                  <img src="f/i/catalog-list/2.png" alt="">
+                </div>
+                <p class="catalog-list__section">Стеновые <br> материалы</p>
+                <ul class="catalog-list__links">
+                  <li><a href="#">Кирпич</a></li>
+                  <li><a href="#">Сэндвич панели</a></li>
+                  <li><a href="#">Вентилируемые фасады</a></li>
+                  <li><a href="#">Сайдинг</a></li>
+                </ul>
+              </div><div class="catalog-list__item">
+                <div class="catalog-list__img">
+                  <i class="catalog-list__icon icon-sun"></i>
+                  <img src="f/i/catalog-list/3.png" alt="">
+                </div>
+                <p class="catalog-list__section">Теплоизоляция</p>
+                <ul class="catalog-list__links">
+                  <li><a href="#">Кровля</a></li>
+                  <li><a href="#">Стена</a></li>
+                  <li><a href="#">Пол</a></li>
+                  <li><a href="#">Фундамент</a></li>
+                </ul>
+              </div><div class="catalog-list__item">
+                <div class="catalog-list__img">
+                  <i class="catalog-list__icon icon-drop"></i>
+                  <img src="f/i/catalog-list/4.png" alt="">
+                </div>
+                <p class="catalog-list__section">Гидроизоляция</p>
+                <ul class="catalog-list__links">
+                  <li><a href="#">Гидроизоляция фундамента</a></li>
+                  <li><a href="#">Гидроизоляционные шпонки и бентонитовый шнур</a></li>
+                  <li><a href="#">Деформационные швы</a></li>
+                  <li><a href="#">Гидроизоляция мостов</a></li>
+                </ul>
+              </div><div class="catalog-list__item">
+                <div class="catalog-list__img">
+                  <i class="catalog-list__icon icon-steam"></i>
+                  <img src="f/i/catalog-list/5.png" alt="">
+                </div>
+                <p class="catalog-list__section">Паро-, ветро-, <br> влагозащита</p>
+                <ul class="catalog-list__links">
+                  <li><a href="#">Подкровельные мембраны</a></li>
+                  <li><a href="#">Пароизоляция</a></li>
+                  <li><a href="#">Ветровлагозащита</a></li>
+                </ul>
+              </div><div class="catalog-list__item">
+                <div class="catalog-list__img">
+                  <i class="catalog-list__icon icon-sound"></i>
+                  <img src="f/i/catalog-list/6.png" alt="">
+                </div>
+                <p class="catalog-list__section">Звукоизоляция</p>
+                <ul class="catalog-list__links">
+                  <li><a href="#">Перегородок</a></li>
+                  <li><a href="#">Перекрытий</a></li>
+                </ul>
+              </div><div class="catalog-list__item">
+                <div class="catalog-list__img">
+                  <i class="catalog-list__icon icon-fire"></i>
+                  <img src="f/i/catalog-list/7.png" alt="">
+                </div>
+                <p class="catalog-list__section">Огнезащита <br> и техническая <br> изоляция</p>
+                <ul class="catalog-list__links">
+                  <li><a href="#">Огнезащита</a></li>
+                  <li><a href="#">Техническая изоляция</a></li>
+                </ul>
+              </div><div class="catalog-list__item">
+                <div class="catalog-list__img">
+                  <i class="catalog-list__icon icon-percent"></i>
+                  <img src="f/i/catalog-list/8.png" alt="">
+                </div>
+                <p class="catalog-list__section catalog-list__section_spec">Специальные  <br>предложения</p>
+                <ul class="catalog-list__links">
+                  <li><a href="#">Акции</a></li>
+                  <li><a href="#">Скидки</a></li>
+                </ul>
+              </div>           
             </div>
           </div>
         </div>
