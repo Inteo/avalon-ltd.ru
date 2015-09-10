@@ -18,6 +18,9 @@
   <link rel="stylesheet" href="f/fancybox/jquery.fancybox.css?v=2.1.5" media="screen">
   <script src="f/js/bootstrap.min.js"></script>
   <script src="f/js/bootstrap-multiselect.js"></script>
+  <script src="f/js/jquery.scrollTo.min.js"></script>
+  <script src="f/js/iscroll-lite.js"></script>
+  <script src="f/js/iscroll-probe.js"></script>
   <script src="f/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
   <link rel="stylesheet" href="f/css/bootstrap-multiselect.css">
   <link rel="stylesheet" href="f/css/main.css">
@@ -37,6 +40,20 @@
           fx: 'crossfade',
         }
       });
+      
+      var Scroll  = new IScroll('#scroll-wrap', { 
+        eventPassthrough: true, scrollX: true, scrollY: false
+      });
+
+     /* var sItemWidth
+      if($(window).width() > 1199) {
+        sItemWidth = $(".services__content").width()/3;
+      }
+      else if($(window).width() <= 1199) {
+        sItemWidth = $(".services__content").width()/2;
+      }
+      $(".services__item").width(sItemWidth - 70);
+      $(".services__scroller").width(sItemWidth * 6);*/
     });
   </script>
 </head>
@@ -96,7 +113,7 @@
         <div class="holder clearfix">
           <div class="switcher">
             <div class="main-screen__control">
-              <a href="#" class="main-screen__catalog-btn"><i class="icon-ham"></i>Каталог
+              <a href="#" class="main-screen__catalog-btn js-scroll-link" data-scrollto="1"><i class="icon-ham"></i>Каталог
               </a><ul class="switcher__control main-screen__switcher">
                 <li class="switcher__btn switcher__btn_active"><a href="#">О нас</a>
                 </li><li class="switcher__btn"><a href="#">Скидки</a>
@@ -104,7 +121,7 @@
               </ul>
               <div class="main-screen__search">
                 <form action="" class="main-screen__search-form">
-                  <button id="search-btn" class="main-screen__search-btn iconize-lens"></button><div class="main-screen__search-wrap"><input class="main-screen__search-input" id="search-input" type="text" value="" placeholder="Поиск"/></div>
+                  <button id="search-btn" class="main-screen__search-btn iconize-lens"></button><div class="main-screen__search-wrap"><input class="main-screen__search-input" id="search-input" type="search" value="" placeholder="Поиск"/></div>
                 </form>
               </div>
               <ul class="switcher__control main-screen__switcher main-screen__switcher_2">
@@ -176,7 +193,7 @@
           </div>
         </div>
       </section>
-      <section class="catalog-list">
+      <section class="catalog-list js-scroll-target" data-scrollto="1">
         <div class="holder">
           <p class="catalog-list__title">Каталог</p>
           <div class="switcher">
@@ -275,7 +292,118 @@
                 </ul>
               </div>           
             </div>
+            <div class="switcher__holder catalog-list__holder">
+              <div class="catalog-list__item">
+                <div class="catalog-list__img">
+                  <img src="f/i/catalog-list/9.png" alt="">
+                </div>
+                <p class="catalog-list__section">Кровля</p>
+                <ul class="catalog-list__links">
+                  <li><a href="#">Скатная</a></li>
+                  <li><a href="#">Плоская</a></li>
+                </ul>
+              </div><div class="catalog-list__item">
+                <div class="catalog-list__img">
+                  <img src="f/i/catalog-list/10.png" alt="">
+                </div>
+                <p class="catalog-list__section">Стены</p>
+                <ul class="catalog-list__links">
+                  <li><a href="#">Сэндвич-панели</a></li>
+                  <li><a href="#">Штукатурный фасад</a></li>
+                  <li><a href="#">Вентилируемый фасад</a></li>
+                  <li><a href="#">Кирпич</a></li>
+                  <li><a href="#">Трехслойная кладка</a></li>
+                  <li><a href="#">Каркасные стены</a></li>
+                </ul>
+              </div><div class="catalog-list__item">
+                <div class="catalog-list__img">
+                  <img src="f/i/catalog-list/11.png" alt="">
+                </div>
+                <p class="catalog-list__section">Фундамент</p>
+                <ul class="catalog-list__links">
+                  <li><a href="#">Гидроизоляция</a></li>
+                  <li><a href="#">Гидроизоляция с утеплением</a></li>
+                  <li><a href="#">Гидрошпонки</a></li>
+                </ul>
+              </div>          
+            </div>
+            <div class="switcher__holder catalog-list__holder catalog-list__holder_brand brand">
+              <a href="#" class="brand__item">
+                <img src="f/i/brands/1.png" alt="">
+              </a><a href="#" class="brand__item">
+                <img src="f/i/brands/2.png" alt="">
+              </a><a href="#" class="brand__item">
+                <img src="f/i/brands/3.png" alt="">
+              </a><a href="#" class="brand__item">
+                <img src="f/i/brands/4.png" alt="">
+              </a><a href="#" class="brand__item">
+                <img src="f/i/brands/5.png" alt="">
+              </a><a href="#" class="brand__item">
+                <img src="f/i/brands/6.png" alt="">
+              </a><a href="#" class="brand__item">
+                <img src="f/i/brands/7.png" alt="">
+              </a><a href="#" class="brand__item">
+                <img src="f/i/brands/8.png" alt="">
+              </a>         
+            </div>
           </div>
+        </div>
+      </section>
+      <section class="services">
+        <div class="services__back"></div>
+        <div class="holder services__holder">
+          <div class="services__text">
+            <p class="services__title">Мы работаем для тех, <br> кто ценит качество и долговечность</p>
+            <p class="services__descr">Оказываем полный цикл услуг по комплектации и поставке всех видов кровельных и стеновых материалов.</p>
+          </div>
+          <div class="services__content" id="scroll-wrap">
+            <div class="services__scroller">
+              <div class="services__item">
+                <div class="services__img">
+                  <img src="f/i/services/1.png" alt="">
+                  <i>1</i>
+                </div>
+                <p class="services__name">Консультация</p>
+                <p class="services__detail">На этом этапе мы обсудим детали предстоящего проекта и ответим на все интересующие вас вопросы.</p>
+              </div><div class="services__item">
+                <div class="services__img">
+                  <img src="f/i/services/2.png" alt="">
+                  <i>2</i>
+                </div>
+                <p class="services__name">Расчет</p>
+                <p class="services__detail">Произведем расчет количества материалов, необходимых для выполнения всех работ, а также стоимости их доставки на объект.</p>
+              </div><div class="services__item">
+                <div class="services__img">
+                  <img src="f/i/services/3.png" alt="">
+                  <i>3</i>
+                </div>
+                <p class="services__name">Комплексная поставка</p>
+                <p class="services__detail">Осуществим поставку кровельных и стеновых материалы от «А» до «Я».</p>
+              </div><div class="services__item">
+                <div class="services__img">
+                  <img src="f/i/services/4.png" alt="">
+                  <i>4</i>
+                </div>
+                <p class="services__name">Доставка</p>
+                <p class="services__detail">Осуществим доставку строительных материалов на ваш объект точно в оговоренный срок.</p>
+              </div><div class="services__item">
+                <div class="services__img">
+                  <img src="f/i/services/5.png" alt="">
+                  <i>5</i>
+                </div>
+                <p class="services__name">Монтаж</p>
+                <p class="services__detail">Выполним монтажные работы в рекордно короткие сроки, максимально качественно и по конкурентно выгодной цене.</p>
+              </div><div class="services__item">
+                <div class="services__img">
+                  <img src="f/i/services/6.png" alt="">
+                  <i>6</i>
+                </div>
+                <p class="services__name">Гарантийное обслуживание</p>
+                <p class="services__detail">Все материалы проверяются нами на соответствие качеству, что позволяет нести все гарантийные обязательства.</p>
+              </div>
+            </div>
+          </div>
+          <a href="#" class="services__btn"><i class="icon-man"></i>Заказать консультацию</a>
         </div>
       </section>
     </div>
