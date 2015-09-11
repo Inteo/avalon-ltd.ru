@@ -97,7 +97,7 @@
 	height: 55px;
 	cursor: pointer;
 	z-index: 8040;
-background: rgba(255,255,255,.5) url(../../f/i/icons.png) 0 -76px no-repeat;
+background: url(../../f/i/icons.png) 0 -76px no-repeat;
 border:0!important;
 }
 

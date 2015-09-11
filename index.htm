@@ -41,19 +41,43 @@
         }
       });
       
-      var Scroll  = new IScroll('#scroll-wrap', { 
-        eventPassthrough: true, scrollX: true, scrollY: false
-      });
-
-     /* var sItemWidth
+      var sItemWidth;
+      var sItemPadding = $(".services__item").outerWidth() - $(".services__item").width();
       if($(window).width() > 1199) {
         sItemWidth = $(".services__content").width()/3;
       }
-      else if($(window).width() <= 1199) {
+      else if($(window).width() <= 1199 && $(window).width() > 767) {
         sItemWidth = $(".services__content").width()/2;
       }
-      $(".services__item").width(sItemWidth - 70);
-      $(".services__scroller").width(sItemWidth * 6);*/
+      else if($(window).width() <= 600) {
+        sItemWidth = $(".services__content").width();
+      }
+
+      $(".services__item").width(sItemWidth - sItemPadding);
+      $(".services__scroller").width(sItemWidth * 6);
+
+      var Scroll  = new IScroll('#scroll-wrap', { 
+        scrollX: true, scrollY: false
+      });
+
+      $(".switcher__btn").click(function(){
+        $(this).closest(".main-control").removeClass("main-control_blue");
+        $(this).closest(".main-screen").removeClass("main-screen_blue");
+        $(this).closest(".switcher__control").removeClass("switcher__control_gray");
+        if($(this).index() == 0) {
+          $(this).closest(".main-control").addClass("main-control_blue");
+          $(this).closest(".main-screen").addClass("main-screen_blue");
+        }
+        else {
+          $(this).closest(".main-screen .switcher__control").addClass("switcher__control_gray");
+        }
+      });
+      $(".main-control__search-input").on('focus', function(){
+        $(this).closest(".main-control__search").find(".main-control__search-btn").addClass("main-control__search-btn_focus");
+      })
+      $(".main-control__search-input").on('blur', function(){
+        $(this).closest(".main-control__search").find(".main-control__search-btn").removeClass("main-control__search-btn_focus");
+      })
     });
   </script>
 </head>
@@ -89,7 +113,7 @@
             <p class="header__logo-text">комплексные поставки <br>кровельных и стеновых материалов с 2002 года</p>
           </div>
           <div class="header__main-wrap">
-            <a href="#" class="header__phone-btn iconize-phone">&nbsp;</a>
+            <a href="#callback" class="header__phone-btn iconize-phone modal-inline">&nbsp;</a>
             <p class="header__phone"><span>(4852)</span>640-800</p>
             <ul class="main-menu">
               <li><a href="#">Услуги</a></li>
@@ -109,22 +133,22 @@
       </div>
     </header>
     <div class="content">
-      <section class="main-screen">
+      <section class="main-screen main-screen_blue">
         <div class="holder clearfix">
           <div class="switcher">
-            <div class="main-screen__control">
-              <a href="#" class="main-screen__catalog-btn js-scroll-link" data-scrollto="1"><i class="icon-ham"></i>Каталог
-              </a><ul class="switcher__control main-screen__switcher">
+            <div class="main-control main-control_blue">
+              <a href="#" class="main-control__catalog-btn js-scroll-link" data-scrollto="1"><i class="icon-ham"></i>Каталог
+              </a><ul class="switcher__control main-control__switcher">
                 <li class="switcher__btn switcher__btn_active"><a href="#">О нас</a>
                 </li><li class="switcher__btn"><a href="#">Скидки</a>
                 </li><li class="switcher__btn"><a href="#">Акции</a></li>
               </ul>
-              <div class="main-screen__search">
-                <form action="" class="main-screen__search-form">
-                  <button id="search-btn" class="main-screen__search-btn iconize-lens"></button><div class="main-screen__search-wrap"><input class="main-screen__search-input" id="search-input" type="search" value="" placeholder="Поиск"/></div>
+              <div class="main-control__search">
+                <form action="" class="main-control__search-form">
+                  <button id="search-btn" class="main-control__search-btn iconize-lens"></button><div class="main-control__search-wrap"><input class="main-control__search-input" id="search-input" type="search" value="" placeholder="Поиск"/></div>
                 </form>
               </div>
-              <ul class="switcher__control main-screen__switcher main-screen__switcher_2">
+              <ul class="switcher__control main-control__switcher main-control__switcher_2">
                 <li class="switcher__btn switcher__btn_active"><a href="#">О нас</a>
                 </li><li class="switcher__btn"><a href="#">Скидки</a>
                 </li><li class="switcher__btn"><a href="#">Акции</a></li>
@@ -157,6 +181,51 @@
                     </div>
                   </div>
                   <div class="about-slider__pager"></div>
+                </div>
+              </div>
+            </div>
+            <div class="switcher__holder">
+              <div class="catalog main-screen__catalog">
+                <div class="catalog-slider">
+                  <div class="catalog__holder">
+                    <div class="catalog__item catalog__item_dbl">
+                      <a href="#" class="catalog__item-holder">
+                        
+                      </a>
+                    </div><div class="catalog__item">
+                      <a href="#" class="catalog__item-holder">
+                        
+                      </a>
+                    </div><div class="catalog__item">
+                      <a href="#" class="catalog__item-holder">
+                        
+                      </a>
+                    </div><div class="catalog__item">
+                      <a href="#" class="catalog__item-holder">
+                        
+                      </a>
+                    </div><div class="catalog__item">
+                      <a href="#" class="catalog__item-holder">
+                        
+                      </a>
+                    </div><div class="catalog__item">
+                      <a href="#" class="catalog__item-holder">
+                        
+                      </a>
+                    </div><div class="catalog__item">
+                      <a href="#" class="catalog__item-holder">
+                        
+                      </a>
+                    </div><div class="catalog__item">
+                      <a href="#" class="catalog__item-holder">
+                        
+                      </a>
+                    </div><div class="catalog__item">
+                      <a href="#" class="catalog__item-holder">
+                        
+                      </a>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -506,6 +575,26 @@
       </div>
     </div>
   </footer> 
-  <div class="popups"></div>
+  <div class="popups">
+    <div class="popup" id="callback">
+      <p class="popup__title">Обратный звонок</p>
+      <div class="popup__inputs">
+        <div class="popup__input">
+          <input type="text" class="input" placeholder="Представьтесь, пожалуйста">
+        </div>
+        <div class="popup__input">
+          <input type="tel" class="input input_verif input_error" placeholder="Телефон">
+          <span class="input-verif input-verif_error"></span>
+        </div>
+        <div class="popup__input">
+          <input type="email" class="input input_verif input_success" placeholder="Электронная почта">
+          <span class="input-verif input-verif_success"></span>
+        </div>
+      </div>
+      <div class="popup__btn">
+        <a href="#" class="orange-btn">Отправить</a>
+      </div>
+    </div>
+  </div>
 </body>
 </html>

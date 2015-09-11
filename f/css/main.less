@@ -3806,21 +3806,147 @@ button.close {
   color: @gray;
   font-size: 14px;
 }
-.main-screen__search-input::-moz-placeholder {
-  opacity: 1;
-  color: #0d3a52;
-  font-size: 16px;
+::-webkit-input-placeholder { 
   line-height: 24px;
 }
-.main-screen__search-input:-ms-input-placeholder {
-  color: #0d3a52;
-  font-size: 16px;
+:-moz-placeholder { 
+  line-height: 24px;
+} 
+:-ms-input-placeholder { 
   line-height: 24px;
 }
-.main-screen__search-input::-webkit-input-placeholder {
-  color: #0d3a52;
-  font-size: 16px;
+input:-moz-placeholder { 
   line-height: 24px;
+}
+.main-screen__search-input::-webkit-input-placeholder { 
+  color: #cfd8dc;
+}
+.main-screen__search-input:-moz-placeholder { 
+  color: #cfd8dc;
+} 
+.main-screen__search-input:-ms-input-placeholder { 
+  color: #cfd8dc;
+}
+input.main-screen__search-input:-moz-placeholder { 
+  color: #cfd8dc;
+}
+.main-screen_blue .main-screen__search-input::-webkit-input-placeholder { 
+  color: #0d3a52;
+}
+.main-screen_blue .main-screen__search-input:-moz-placeholder { 
+  color: #0d3a52;
+} 
+.main-screen_blue .main-screen__search-input:-ms-input-placeholder { 
+  color: #0d3a52;
+}
+.main-screen_blue input.main-screen__search-input:-moz-placeholder { 
+  color: #0d3a52;
+}
+.popups {
+  display: none;
+}
+.popup {
+  width: 560px;
+  padding: 40px 50px 60px;
+  @media (max-width: 600px) {
+    width: 450px;
+  }
+  @media @old {
+    width: 270px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  
+  &__title {
+    font: bold 40px 'Roboto', sans-serif;
+    color: @blue;
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  &__inputs {
+    margin-bottom: 50px;
+  }
+  &__input {
+    position: relative;
+    margin-bottom: 30px;
+    & .input {
+      width: 100%;
+    }
+  }
+  &__btn {
+    text-align: center;
+  }
+}
+.fancybox-skin {
+  border-radius: 5px;
+}
+.fancybox-close {
+  width: 22px;
+  height: 22px;
+  background-color: none;
+  background-position: -149px -2px;
+  &:hover {
+    background-position: -149px -28px;
+  }
+  top: -30px;
+  right: -30px;
+  @media @old {
+    top: 10px;
+    right: 10px;
+  }
+}
+.input {
+  padding: 0 20px;
+  line-height: 25px;
+  color: #37474f;
+  border: 2px solid #eceff1;
+  border-radius: 5px;
+  height: 50px;
+  &:hover {
+    background: #eceff1;
+  }
+  &_success {
+    border: 2px solid @blue;
+  }
+  &-verif {
+    position: absolute;
+    right: 10px;
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    vertical-align: middle;
+    background-image: url("../../f/i/icons.png");
+    &_success {
+      background-position: -176px 0;
+    }
+    &_error {
+      background-position: -176px -26px;
+    }
+  }
+  &_error {
+    border: 2px solid @orange;
+  }
+  &_verif {
+    padding-right: 44px;
+  }
+}
+.orange-btn {
+  background: @orange;
+  border-radius: 4px;
+  line-height: 40px;
+  padding: 0 20px;
+  height: 50px;
+  color: #fff;
+  font-weight: bold;
+  display: inline-block;
+  vertical-align: top;
+  line-height: 46px;
+  &:hover {
+    background: #e53935;
+  }
 }
 .pseudo {
 	text-decoration: none!important;
@@ -3951,11 +4077,11 @@ a:hover .icon-key {
   width: 20px;
   height: 18px;
   background-position: -23px -53px;
-  margin: -4px 20px 0 0;
+  margin: -5px 20px 0 0;
 }
-a:hover .icon-ham {
+/* a:hover .icon-ham {
   background-position: -43px -29px;
-} 
+}  */
 .iconize-ok:before {
 	width: 14px;
 	height: 13px;
@@ -4675,7 +4801,51 @@ button:hover:before {
         color: #fff;
       }
     }
-    
+  }
+  &__control_gray &__btn {
+    border: 2px solid #eceff1;
+    border-left: none;
+    background: #f5f5f5;
+    &:first-child {
+      border-left: 2px solid #eceff1;
+    }
+    &:hover a {
+      color: @orange;
+    }
+    & a {
+      color: @blue;
+    }
+    @media @old {
+      border-top: none;
+      border-left: 2px solid #eceff1;
+      &:first-child {
+        border-top: 2px solid #eceff1;
+      }
+    }
+    &_active {
+      background: #fff;
+      &:before {
+        border-top: 10px solid #eceff1;
+      }
+      &:after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        width: 0;
+        height: 0;
+        left: 50%;
+        margin-left: -6px;
+        border: 10px solid transparent;
+        border-bottom: none;
+        border-top: 10px solid #fff;
+        @media @old {
+          display: none;
+        }
+      }
+      & a {
+        color: @orange;
+      }
+    }
   }
   &__control_wide &__btn {
     min-width: 220px;
@@ -4721,14 +4891,8 @@ button:hover:before {
     }
   }
 }
-.main-screen {
-  background: @blue;
-  padding: 40px 0;
-  margin-bottom: -20px;
-  min-height: 600px;
-  &__control {
-    margin-bottom: 30px;
-  }
+.main-control {
+  margin-bottom: 30px;
   &__catalog-btn {
     float: left;
     height: 50px;
@@ -4737,14 +4901,19 @@ button:hover:before {
     font: bold 20px 'Roboto Black', sans-serif;
     text-transform: uppercase;
     color: #fff;
-    border: 2px solid #0d3a52;
+    border: 2px solid @orange;
+    background: @orange;
     padding: 11px 40px;
     border-radius: 4px;
     letter-spacing: .03em;
     margin-right: 30px;
+    line-height: 28px;
+    .icon-ham {
+      background-position: -43px -29px;
+    }  
     &:hover {
-      background: @orange;
-      border: 2px solid @orange;
+      background: #e53935;
+      border: 2px solid #e53935;
     }
     @media @mobile {
       float: none;
@@ -4754,6 +4923,20 @@ button:hover:before {
     @media @old {
      width: 100%;
      padding: 11px 35px;
+    }
+  }
+  &_blue &__catalog-btn {
+    border: 2px solid #0d3a52;
+    background: @blue;
+    .icon-ham {
+      background-position: -23px -53px;
+    }  
+    &:hover {
+      background: @orange;
+      border: 2px solid @orange;
+      .icon-ham {
+        background-position: -43px -29px;
+      }  
     }
   }
   &__switcher {
@@ -4789,10 +4972,10 @@ button:hover:before {
     }
     &-btn {
       float: right;
-      border: 2px solid #0d3a52;
+      border: 2px solid #eceff1;
       border-left: none;
       border-radius: 0 4px 4px 0;
-      background: @blue;
+      background: #f5f5f5;
       height: 50px;
       width: 50px;
       &:hover {
@@ -4800,19 +4983,60 @@ button:hover:before {
         border: 2px solid @orange;
         border-left: none;
       }
+      &_focus {
+        border: 2px solid @blue;
+        border-left: none;
+      }
     }
     &-input {
       width: 100%;
       height: 50px;
-      border: 2px solid #0d3a52;
+      border: 2px solid #eceff1;
       border-radius: 4px 0 0 4px;
       padding: 11px 30px;
-      background: @blue;
+      background: #f5f5f5;
       border-right: none;
       font-weight: bold;
-      color: #fff;
+      color: @black;
       outline: 0;
+      &:focus {
+        border: 2px solid @blue;
+        border-right: none;
+      }
     }
+  }
+  &_blue &__search {
+    &-btn {
+      border: 2px solid #0d3a52;
+      border-left: none;
+      background: @blue;
+      &:hover {
+        background: @orange;
+        border: 2px solid @orange;
+        border-left: none;
+      }
+    }
+    &-input {
+      border: 2px solid #0d3a52;
+      background: @blue;
+      color: #fff;
+      &:focus {
+        border: 2px solid #0d3a52;
+      }
+    }
+  }
+}
+.main-screen {
+  background: #f5f5f5;
+  padding: 40px 0 0;
+  margin-bottom: -30px;
+  min-height: 600px;
+  .transition(background, .3s, ease);
+  &_blue {
+    background: @blue;
+  }
+  &__catalog {
+    margin-bottom: 60px;
   }
 }
 .about-slider {
@@ -4928,8 +5152,8 @@ button:hover:before {
 }
 .achiv {
   background: @blue;
-  padding-top: 20px;
-  max-height: 290px;
+  padding-top: 70px;
+  max-height: 340px;
   overflow: hidden;
   @media @mobile {
     display: none;
@@ -5172,7 +5396,7 @@ button:hover:before {
     }
     @media @old {
       font-size: 30px;
-      line-height: 50px;
+      line-height: 45px;
       margin-bottom: 25px;
     }
   }
@@ -5195,7 +5419,7 @@ button:hover:before {
     display: inline-block;
     color: @orange;
     font-weight: bold;
-    line-height: 20px;
+    line-height: 25px;
     &:hover {
       background: #eceff1;
     }
@@ -5210,12 +5434,9 @@ button:hover:before {
     z-index: 2;
     position: relative;
     cursor: pointer;
-    height: 455px;
+    height: 465px;
     margin-bottom: 30px;
     overflow: hidden;
-    @media @old {
-      height: 470px;
-    }
   }
   &__img {
     position: relative;
@@ -5223,7 +5444,7 @@ button:hover:before {
     pointer-events: none;
     @media @old {
       & img{
-        width: 220px;
+        width: 180px;
       }
     }
     & i {
@@ -5243,9 +5464,19 @@ button:hover:before {
   &__item:nth-child(odd) &__img:before {
     content: '';
     position: absolute;
-    right: -50px;
+    right: -40px;
     @media @small {
       right: 0;
+    }
+    @media (max-width: 800px) {
+      display: none;
+    }
+    @media (max-width: 600px) {
+      display: block;
+      right: -55px;
+    }
+    @media @old {
+      display: none;
     }
     width: 116px;
     height: 34px;
@@ -5255,9 +5486,19 @@ button:hover:before {
   &__item:nth-child(even) &__img:before {
     content: '';
     position: absolute;
-    right: -50px;
+    right: -40px;
     @media @small {
       right: 0;
+    }
+    @media (max-width: 800px) {
+      display: none;
+    }
+    @media (max-width: 600px) {
+      display: block;
+      right: -55px;
+    }
+    @media @old {
+      display: none;
     }
     width: 130px;
     height: 34px;
@@ -5271,23 +5512,50 @@ button:hover:before {
     width: 330px;
     display: inline-block;
     vertical-align: text-top;
-    margin-left: 70px;
+    padding-left: 70px;
     -moz-user-select: none;
     -webkit-user-select: none;
-     @media @old {
+    /* @media @old {
       width: 230px;
-    } 
+    }  */
   }
   &__name {
     font: bold 30px/40px 'Roboto', sans-serif;
     color: #fff;
     margin-bottom: 20px;
+    @media @old {
+      margin-bottom: 10px;
+    }
   }
   &__detail {
     color: #fff;
     line-height: 35px;
     @media @old {
       font-size: 14px;
+      line-height: 25px;
+    }
+  }
+}
+.catalog {
+
+  &__holder {
+    margin-left: -20px;
+    margin-top: -20px;
+  }
+  &__item {
+    width: 20%;
+    display: inline-block;
+    vertical-align: top;
+    
+    padding-left: 20px;
+    padding-top: 20px;
+    &_dbl {
+      width: 40%;
+    }
+    &-holder {
+      background: #fff;
+      display: block;
+      min-height: 440px;
     }
   }
 }
