@@ -3953,6 +3953,9 @@ input.main-screen__search-input:-moz-placeholder {
 	cursor: pointer; 
 	border-bottom: 1px dotted;
 }
+.rub {
+  font-family: 'PT Sans', sans-serif;
+}
 [class^="icon-"], [class*=" icon-"] {
   display: inline-block;
   width: 14px;
@@ -3973,6 +3976,18 @@ input.main-screen__search-input:-moz-placeholder {
   display: block;
   content: '';
   background: url('../../f/i/icons.png') -9999px -9999px no-repeat;
+}
+.icon-ok {
+  width: 20px;
+  height: 20px;
+  background-position: -180px -56px;
+  margin: -4px 5px 0 0;
+}
+.icon-time {
+  width: 20px;
+  height: 20px;
+  background-position: -180px -77px;
+  margin: -4px 5px 0 0;
 }
 .icon-man {
   width: 22px;
@@ -5537,25 +5552,176 @@ button:hover:before {
   }
 }
 .catalog {
-
   &__holder {
     margin-left: -20px;
     margin-top: -20px;
   }
   &__item {
     width: 20%;
+    @media @small {
+      width: 25%;
+    }
+    @media @tablet {
+      width: 33.333333%;
+    }
+    @media @mobile {
+      width: 50%;
+    }
+    @media @old {
+      width: 100%;
+    }
     display: inline-block;
     vertical-align: top;
-    
     padding-left: 20px;
     padding-top: 20px;
     &_dbl {
       width: 40%;
+      @media @small {
+        width: 50%;
+      }
+      @media @tablet {
+        width: 66.666666%;
+      }
+      @media @mobile {
+        width: 100%;
+      }
     }
     &-holder {
       background: #fff;
       display: block;
-      min-height: 440px;
+      height: 440px;
+      padding: 20px;  
+      position: relative;
+      &:hover {
+        -webkit-box-shadow: 0px 0px 15px 0px rgba(207, 216, 220, 1);
+        -moz-box-shadow:    0px 0px 15px 0px rgba(207, 216, 220, 1);
+        box-shadow:         0px 0px 15px 0px rgba(207, 216, 220, 1);
+      }
+    }
+  }
+  &__item_dbl &__item-holder {
+    @media @old {
+      height: 470px;
+    }
+  }
+  &__img {
+    display: block;
+    text-align: center;
+    position: relative;
+    margin-bottom: 20px;
+    padding: 30px 20px 20px;
+    min-height: 180px;
+    & img {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      max-height: 100%;
+      max-width: 100%;
+    }
+  }
+  &__in-stock {
+    color: #4caf50;
+    font-size: 14px;
+    margin-right: 10px;
+    display: block;
+    margin-bottom: 10px;
+    &_not {
+      color: #ff9800;
+    }
+  }
+  &__brand {
+    color: #b0bec5;
+    font-style: italic;
+    font-size: 14px;
+    margin-bottom: 10px;
+    display: inline-block;
+  }
+  &__name {
+    color: @blue;
+    display: block;
+    margin-bottom: 25px;
+    line-height: 25px;
+  }
+  &__item-holder:hover &__name {
+    color: @orange;
+  }
+  &__old-price {
+    color: @black;
+    font-size: 14px;
+    display: block;
+    margin-right: 10px;
+    margin-bottom: 15px;
+    & b {
+      font-size: 16px;
+      position: relative;
+      font-weight: normal;
+      &:before {
+        position: absolute;
+        height: 1px;
+        width: 100%;
+        background: @black;
+        top: 50%;
+        left: 0;
+        content: '';
+      }
+    }
+  }
+  &__price {
+    color: @black;
+    font-size: 14px;
+    & b {
+      font-size: 30px;
+    }
+    & .rub {
+      font-size: 20px;
+    }
+  }
+  &__promo {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: @orange;
+    font-weight: bold;
+  }
+  &__item_dbl &__in-stock {
+    display: inline-block;
+    margin-bottom: 10px;
+  }
+  &__item_dbl &__brand {
+    display: inline-block;
+  }
+  &__item_dbl &__old-price {
+    display: inline-block;
+    margin-bottom: 0;
+  }
+  &__item_dbl &__img {
+    padding: 0 70px;
+    height: 250px;
+  }
+}
+.promo {
+  margin-bottom: 60px;
+  &__holder {
+    margin-left: -20px;
+    margin-top: -20px;
+  }
+  &__item {
+    padding: 20px 0 0 20px;
+    width: 50%;
+    display: inline-block;
+    vertical-align: top;
+    &-holder {
+      background: #fff;
+      height: 300px;
+      display: block;
+      &:hover {
+        -webkit-box-shadow: 0px 0px 15px 0px rgba(207, 216, 220, 1);
+        -moz-box-shadow:    0px 0px 15px 0px rgba(207, 216, 220, 1);
+        box-shadow:         0px 0px 15px 0px rgba(207, 216, 220, 1);
+      }
     }
   }
 }
