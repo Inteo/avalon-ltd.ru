@@ -14,7 +14,7 @@ $(function(){
   	if(!$(this).hasClass("active")) {
 	    var scrollTo = $(this).data("scrollto"),
 	    scrollTarget = $('*[data-scrollto="'+scrollTo+'"].js-scroll-target');
-	    $.scrollTo(scrollTarget, 350, {offset: 0});
+	    $.scrollTo(scrollTarget, 350, {offset: 30});
   	}
   });
 });
@@ -41,4 +41,18 @@ $(document).ready(function(){
       }
     }
   }); 
+  $(".catalog").each(function(){
+  	var max_height = 0;
+  	if($(window).width() >= 480) {
+  		$(this).find(".catalog__item-holder").each(function(){
+	  		var hidden = $(this).closest('.switcher__holder');
+				hidden.css("opacity", "0.01").show();
+	  		if($(this).height() > max_height) {
+	  			max_height = $(this).height();
+	  		}
+	  		hidden.hide().css("opacity", "1");
+	  	});
+	  	$(this).find(".catalog__item-holder").height(max_height);
+  	}
+  })
 });

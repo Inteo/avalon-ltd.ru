@@ -3905,6 +3905,9 @@ input.main-screen__search-input:-moz-placeholder {
   &:hover {
     background: #eceff1;
   }
+  &:focus {
+    outline: none;
+  }
   &_success {
     border: 2px solid @blue;
   }
@@ -3976,6 +3979,11 @@ input.main-screen__search-input:-moz-placeholder {
   display: block;
   content: '';
   background: url('../../f/i/icons.png') -9999px -9999px no-repeat;
+}
+.icon-sad {
+  width: 100px;
+  height: 55px;
+  background-position: 0 -295px;
 }
 .icon-ok {
   width: 20px;
@@ -5051,7 +5059,7 @@ button:hover:before {
     background: @blue;
   }
   &__catalog {
-    margin-bottom: 60px;
+    margin-bottom: 120px;
   }
 }
 .about-slider {
@@ -5089,7 +5097,7 @@ button:hover:before {
       text-align: center;
       width: 100%;
       left: 0;
-      margin-left: 0;
+      margin-left: -7px;
     }
     & a {
       background: #fff;
@@ -5589,8 +5597,7 @@ button:hover:before {
     &-holder {
       background: #fff;
       display: block;
-      height: 440px;
-      padding: 20px;  
+      padding: 20px 20px 30px 20px;  
       position: relative;
       &:hover {
         -webkit-box-shadow: 0px 0px 15px 0px rgba(207, 216, 220, 1);
@@ -5696,6 +5703,10 @@ button:hover:before {
   &__item_dbl &__old-price {
     display: inline-block;
     margin-bottom: 0;
+    @media @old {
+      margin-bottom: 15px;
+      display: block;
+    }
   }
   &__item_dbl &__img {
     padding: 0 70px;
@@ -5703,16 +5714,19 @@ button:hover:before {
   }
 }
 .promo {
-  margin-bottom: 60px;
+  margin-bottom: 120px;
   &__holder {
-    margin-left: -20px;
-    margin-top: -20px;
+    margin-left: -20px !important;
+    margin-top: -20px !important;
   }
   &__item {
     padding: 20px 0 0 20px;
     width: 50%;
     display: inline-block;
     vertical-align: top;
+    @media @mobile {
+      width: 100%;
+    }
     &-holder {
       background: #fff;
       height: 300px;
@@ -5722,6 +5736,66 @@ button:hover:before {
         -moz-box-shadow:    0px 0px 15px 0px rgba(207, 216, 220, 1);
         box-shadow:         0px 0px 15px 0px rgba(207, 216, 220, 1);
       }
+    }
+  }
+}
+.promo-slider {
+  &__item {
+    margin-bottom: 15px;
+  }
+}
+.slider {
+  &__holder {
+    padding: 15px;
+    //margin-right: 30px; 
+  }
+  &__item {
+    margin-bottom: 30px;
+  }
+  & .caroufredsel_wrapper {
+    margin: -15px !important;
+  }
+  &__pager {
+    position: absolute;
+    bottom: 70px;
+    left: 0;
+    padding-left: 30px;
+    z-index: 2;
+    & a {
+      background: @blue;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      margin-left: 17px;
+      display: inline-block;
+      vertical-align: middle;
+      & span {
+        display: none;
+      }
+      &.selected {
+        background: none;
+        border: 2px solid @orange;
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+}
+.no-promo {
+  min-height: 400px;
+  text-align: center;
+  padding: 70px 0;
+  &__icon {
+    margin-bottom: 30px;
+  }
+  &__text {
+    font: bold 40px/50px 'Roboto', sans-serif;
+    color: #cfd8dc;
+    max-width: 630px;
+    display: inline-block;
+    @media @old {
+      font-size: 30px;
+      line-height: 40px;
     }
   }
 }
