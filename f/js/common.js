@@ -19,6 +19,12 @@ $(function(){
 	    $.scrollTo(scrollTarget, 350, {offset: 30});
   	}
   });
+  $(".main-control__search-input").on('focus', function(){
+    $(this).closest(".main-control__search").find(".main-control__search-btn").addClass("main-control__search-btn_focus");
+  })
+  $(".main-control__search-input").on('blur', function(){
+    $(this).closest(".main-control__search").find(".main-control__search-btn").removeClass("main-control__search-btn_focus");
+  })
 });
 $(document).ready(function(){
 	$('#city').multiselect();
