@@ -1,14 +1,16 @@
 $(function(){
 	$(".switcher__btn").click(function(){
-		var sw = $(this).closest(".switcher");
-		sw.find(".switcher__btn").removeClass("switcher__btn_active");
-		sw.find(".switcher__holder").removeClass("switcher__holder_active");
-		var index = $(this).index();
-		sw.find(".switcher__control").each(function(){
-			$(this).find(".switcher__btn").eq(index).addClass("switcher__btn_active");
-		});
-		sw.find(".switcher__holder").eq(index).addClass("switcher__holder_active")
-		return false;
+		if(!$(this).closest(".switcher__control").hasClass("switcher__control_deactive")) {
+			var sw = $(this).closest(".switcher");
+			sw.find(".switcher__btn").removeClass("switcher__btn_active");
+			sw.find(".switcher__holder").removeClass("switcher__holder_active");
+			var index = $(this).index();
+			sw.find(".switcher__control").each(function(){
+				$(this).find(".switcher__btn").eq(index).addClass("switcher__btn_active");
+			});
+			sw.find(".switcher__holder").eq(index).addClass("switcher__holder_active")
+			return false;
+		}
 	});
 	$(".js-scroll-link").click(function(){
   	if(!$(this).hasClass("active")) {
@@ -19,6 +21,7 @@ $(function(){
   });
 });
 $(document).ready(function(){
+	$('#city').multiselect();
 	$(".brand .brand__item").each(function(){
 		var hidden = $(this).parents(':hidden');
 		hidden.css("opacity", "0.01").show();

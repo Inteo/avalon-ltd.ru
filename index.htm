@@ -30,8 +30,8 @@
   <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic&subset=all" rel="stylesheet" type="text/css" />
   <script>
     $(document).ready(function(){
-      $('#city').multiselect();
-      $('.about-slider__holder').carouFredSel({
+      var about_slider = $('.about-slider__holder')
+      about_slider.carouFredSel({
         responsive: true,
         pagination: '.about-slider__pager',
         width: "100%",
@@ -42,7 +42,8 @@
         }
       });
       $(".switcher__holder").show();
-      $('.catalog-slider__holder').carouFredSel({
+      var catalog_slider = $('.catalog-slider__holder');
+      catalog_slider.carouFredSel({
         responsive: true,
         pagination: '.catalog-slider__pager',
         width: "100%",
@@ -52,7 +53,8 @@
           fx: 'fade',
         }
       });
-      $('.promo-slider__holder').carouFredSel({
+      var promo_slider = $('.promo-slider__holder');
+      promo_slider.carouFredSel({
         responsive: true,
         pagination: '.promo-slider__pager',
         width: "100%",
@@ -84,6 +86,9 @@
       });
 
       $(".switcher__btn").click(function(){
+        about_slider.trigger('updateSizes');
+        catalog_slider.trigger('updateSizes');
+        promo_slider.trigger('updateSizes');
         $(this).closest(".main-control").removeClass("main-control_blue");
         $(this).closest(".main-screen").removeClass("main-screen_blue");
         $(this).closest(".switcher__control").removeClass("switcher__control_gray");
