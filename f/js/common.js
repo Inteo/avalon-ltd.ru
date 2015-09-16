@@ -21,12 +21,41 @@ $(function(){
   });
   $(".main-control__search-input").on('focus', function(){
     $(this).closest(".main-control__search").find(".main-control__search-btn").addClass("main-control__search-btn_focus");
-  })
+  });
   $(".main-control__search-input").on('blur', function(){
     $(this).closest(".main-control__search").find(".main-control__search-btn").removeClass("main-control__search-btn_focus");
-  })
+  });
+  $(".amounter__numb").on('focus', function(){
+    $(this).closest(".amounter").addClass("amounter_focus");
+  });
+	$(".amounter__numb").on('blur', function(){
+	  $(this).closest(".amounter").removeClass("amounter_focus");
+	});
+	$(".goods-carou a").click(function(){
+    $(this).closest(".goods-carou").find("a").removeClass("selected");
+    $(this).addClass("selected");
+    $(this).closest(".goods-carou").find(".goods-carou__holder img").attr("src", $(this).find("img").attr("src"));
+    return false;
+  });
 });
+function check_min_amounter(that) {
+	var numb = that.closest(".amounter").find(".amounter__numb");
+	if(parseInt(numb.val()) <= parseInt(numb.data("min"))) {
+		that.closest(".amounter").find(".amounter__btn_down").addClass("amounter__btn_min");
+	}
+	else if(parseInt(numb.val()) > parseInt(numb.data("min"))){
+		that.closest(".amounter").find(".amounter__btn_down").removeClass("amounter__btn_min");
+	}
+}
 $(document).ready(function(){
+	$(".amounter").each(function(){
+		if($(this).find(".amounter__numb").val() <= $(this).find(".amounter__numb").data("min")) {
+			$(this).find(".amounter__btn_down").addClass("amounter__btn_min")
+		}
+	});
+	$(".amounter__numb").on('change', function(){
+		check_min_amounter($(this));
+	})
 	$('#city').multiselect();
 	$(".brand .brand__item").each(function(){
 		var hidden = $(this).parents(':hidden');

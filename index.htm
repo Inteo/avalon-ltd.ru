@@ -20,7 +20,6 @@
   <script src="f/js/bootstrap-multiselect.js"></script>
   <script src="f/js/jquery.scrollTo.min.js"></script>
   <script src="f/js/iscroll-lite.js"></script>
-  <script src="f/js/iscroll-probe.js"></script>
   <script src="f/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
   <link rel="stylesheet" href="f/css/bootstrap-multiselect.css">
   <link rel="stylesheet" href="f/css/main.css">
@@ -66,7 +65,7 @@
       });
       $(".slider .caroufredsel_wrapper").width($(".slider .caroufredsel_wrapper").width() + 30);
       $(".switcher__holder").not(".switcher__holder_active").hide();
-      var sItemWidth;
+      /*var sItemWidth;
       var sItemPadding = $(".services__item").outerWidth() - $(".services__item").width();
       if($(window).width() > 1199) {
         sItemWidth = $(".services__content").width()/3;
@@ -79,12 +78,23 @@
       }
 
       $(".services__item").width(sItemWidth - sItemPadding);
-      $(".services__scroller").width(sItemWidth * 6);
+      $(".services__scroller").width(sItemWidth * 6);*/
 
       var Scroll  = new IScroll('#scroll-wrap', { 
-        scrollX: true, scrollY: false
+        scrollX: true, scrollY: false, 
       });
-
+      $('#scroll-wrap').mousedown(function(){
+        $(this).css({cursor:'grabbing'});
+      });  
+      $('#scroll-wrap').mouseup(function(){
+        $(this).css({cursor:'grab'});
+      });
+      $(".services__item").mousedown(function(){
+        $(this).css({cursor:'grabbing'});
+      });
+      $(".services__item").mouseup(function(){
+        $(".services__item").css({cursor:'pointer'});
+      });
       $(".switcher__btn").click(function(){
         about_slider.trigger('updateSizes');
         catalog_slider.trigger('updateSizes');
@@ -676,7 +686,6 @@
         </div>
       </section>
       <section class="services">
-        <div class="services__back"></div>
         <div class="holder services__holder">
           <div class="services__text">
             <p class="services__title">Мы работаем для тех, <br> кто ценит качество и долговечность</p>
@@ -684,49 +693,50 @@
           </div>
           <div class="services__content" id="scroll-wrap">
             <div class="services__scroller">
-              <div class="services__item">
+              <a href="#" class="services__item" onclick="return false;">
                 <div class="services__img">
-                  <img src="f/i/services/1.png" alt="">
+                  <span></span>
                   <i>1</i>
                 </div>
                 <p class="services__name">Консультация</p>
                 <p class="services__detail">На этом этапе мы обсудим детали предстоящего проекта и ответим на все интересующие вас вопросы.</p>
-              </div><div class="services__item">
+              </a><a href="#" class="services__item" onclick="return false;">
                 <div class="services__img">
-                  <img src="f/i/services/2.png" alt="">
+                  <span></span>
                   <i>2</i>
                 </div>
                 <p class="services__name">Расчет</p>
                 <p class="services__detail">Произведем расчет количества материалов, необходимых для выполнения всех работ, а также стоимости их доставки на объект.</p>
-              </div><div class="services__item">
+              </a><a href="#" class="services__item" onclick="return false;">
                 <div class="services__img">
-                  <img src="f/i/services/3.png" alt="">
+                  <span></span>
                   <i>3</i>
                 </div>
                 <p class="services__name">Комплексная поставка</p>
                 <p class="services__detail">Осуществим поставку кровельных и стеновых материалы от «А» до «Я».</p>
-              </div><div class="services__item">
+              </a><a href="#" class="services__item" onclick="return false;">
                 <div class="services__img">
-                  <img src="f/i/services/4.png" alt="">
+                  <span></span>
                   <i>4</i>
                 </div>
                 <p class="services__name">Доставка</p>
                 <p class="services__detail">Осуществим доставку строительных материалов на ваш объект точно в оговоренный срок.</p>
-              </div><div class="services__item">
+              </a><a href="#" class="services__item" onclick="return false;">
                 <div class="services__img">
-                  <img src="f/i/services/5.png" alt="">
+                  <span></span>
                   <i>5</i>
                 </div>
                 <p class="services__name">Монтаж</p>
                 <p class="services__detail">Выполним монтажные работы в рекордно короткие сроки, максимально качественно и по конкурентно выгодной цене.</p>
-              </div><div class="services__item">
+              </a><a href="#" class="services__item" onclick="return false;">
                 <div class="services__img">
-                  <img src="f/i/services/6.png" alt="">
+                  <span></span>
                   <i>6</i>
                 </div>
                 <p class="services__name">Гарантийное обслуживание</p>
                 <p class="services__detail">Все материалы проверяются нами на соответствие качеству, что позволяет нести все гарантийные обязательства.</p>
-              </div>
+              </a>
+              <div class="services__back"></div>
             </div>
           </div>
           <a href="#" class="services__btn"><i class="icon-man"></i>Заказать консультацию</a>

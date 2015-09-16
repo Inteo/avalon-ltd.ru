@@ -20,7 +20,7 @@
   <script src="f/js/bootstrap-multiselect.js"></script>
   <script src="f/js/jquery.scrollTo.min.js"></script>
   <script src="f/js/iscroll-lite.js"></script>
-  <script src="f/js/iscroll-probe.js"></script>
+  <script src="f/js/bootstrap-spinner.min.js"></script>
   <script src="f/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
   <link rel="stylesheet" href="f/css/bootstrap-multiselect.css">
   <link rel="stylesheet" href="f/css/main.css">
@@ -113,7 +113,20 @@
           <h1 class="goods__title">Утеплитель «Лайт Баттс»</h1>
           <div class="goods__holder">
             <div class="goods__img">
-              
+              <div class="goods-carou">
+                <a href="#" class="goods-carou__holder">
+                  <i class="icon-lens"></i>
+                  <img src="f/i/goods/1.jpg" alt="">
+                </a>
+                <div class="goods-carou__pager">
+                  <a href="#" class="selected"><img src="f/i/goods/1.jpg" alt="">
+                  </a><a href="#"><img src="f/i/goods/2.jpg" alt="">
+                  </a><a href="#"><img src="f/i/goods/1.jpg" alt="">
+                  </a><a href="#"><img src="f/i/goods/1.jpg" alt="">
+                  </a><a href="#"><img src="f/i/goods/1.jpg" alt=""></a>
+                </div>
+              </div>
+              <p class="goods__hint"><span>Применение:</span> балконы, каркасные стены, мансарды, перегородки, перекрытия между этажами, полы, полы над холодным подвалом, скатные кровли, стены с отделкой сайдингом </p>
             </div>
             <div class="goods__detail">
               <img class="goods__brand" src="f/i/brands/1.png">
@@ -130,7 +143,7 @@
                   </div>
                 </div>
                 <div class="table-input goods-size">
-                  <input type="radio" id="size1" name="size" class="table-input__control">
+                  <input type="radio" id="size1" name="size" class="table-input__control" checked>
                   <label for="size1">
                     <span class="table-input__row goods-size__row">
                       <span class="table-input__cell goods-size__cell"></span>
@@ -180,6 +193,47 @@
               </div> 
               <p class="goods__hint">Под заказ возможна поставка других толщин с шагом 10 мм. Для подробной консультации обращайтесь к менеджерам.</p>
               <span class="goods__price">569<span class="rub">&#8399;</span></span><span class="goods__for-one">за упаковку</span><span class="goods__in-stock"><i class="icon-ok"></i>В наличии</span> <!-- <span class="goods__in-stock goods__in-stock_not"><i class="icon-time"></i>Под заказ</span> -->
+              <div class="goods__control">
+                <div class="goods__control-wrap">
+                    <div class="amounter goods__amounter">
+                    <input type="number" data-ride="spinner" id="spinner1" class="amounter__numb" value="1" data-min="1" onclick="return false;">
+                    <div class="amounter__btns">
+                      <button class="amounter__btn amounter__btn_up" type="button" data-value="1" data-target="#spinner1" data-toggle="spinner" onclick="return false;"></button>
+                      <button class="amounter__btn amounter__btn_down" type="button" data-value="-1" data-target="#spinner1" data-toggle="spinner" onclick="return false;"></button>
+                    </div>
+                  </div>
+                  <a href="#" class="white-btn goods__calc"><i class="icon-calc"></i>Рассчитать количество</a>
+                  <div class="goods__info">
+                    <div class="info-line">
+                      <span class="info-line__name">Объем</span>
+                      <span class="info-line__value">800 х 600 х 50 <span>мм</span></span>
+                    </div>
+                    <div class="info-line">
+                      <span class="info-line__name">Площадь</span>
+                      <span class="info-line__value">17,28 <span>м<sup>2</sup></span></span>
+                    </div>
+                    <div class="info-line">
+                      <span class="info-line__name">Вес</span>
+                      <span class="info-line__value">27,66 <span>кг</span></span>
+                    </div>
+                    <div class="info-line info-line_bold">
+                      <span class="info-line__name">Стоимость</span>
+                      <span class="info-line__value">1395 <span class="rub">&#8399;</span></span>
+                    </div>
+                  </div>
+                </div><div class="goods__control-wrap">
+                  <a href="#" class="orange-btn goods__in-cart"><i class="icon-in-cart"></i>В корзину</a>
+                  <div class="goods__control-link">
+                    <a href="#" class="iconed-link"><i class="icon-procent"></i>Хотите дешевле?</a>
+                  </div>
+                  <div class="goods__control-link">
+                    <a href="#" class="iconed-link"><i class="icon-rub"></i>Купить в кредит</a>
+                  </div>
+                  <div class="goods__control-link">
+                    <a href="#" class="iconed-link"><i class="icon-star"></i>Купить быстро в 1 клик</a>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
