@@ -19,6 +19,7 @@
   <script src="f/js/bootstrap.min.js"></script>
   <script src="f/js/bootstrap-multiselect.js"></script>
   <script src="f/js/jquery.scrollTo.min.js"></script>
+  <script src="f/js/stickyfill.min.js"></script>
   <script src="f/js/iscroll-lite.js"></script>
   <script src="f/js/bootstrap-spinner.min.js"></script>
   <script src="f/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
@@ -30,35 +31,35 @@
   <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic&subset=all" rel="stylesheet" type="text/css" />
   <script>
     $(document).ready(function(){
-    
+      $(".header-control").Stickyfill();
     });
   </script>
 </head>
 <body>
-  <div class="wrap clearfix">  
-    <header class="header">
-      <div class="header__control">
-        <div class="holder clearfix">
-          <form class="select-form city-switch">
-            <div class="btn-group">
-              <select id="city">
-                <option value="0">Ярославль</option>
-                <option value="1">Вологда</option>
-                <option value="2">Череповец</option>
-                <option value="3">Кострома</option>
-                <option value="4">Иваново</option>
-              </select>
-            </div>
-          </form>
-          <div class="header__control-wrap">
-            <ul class="header__menu">
-              <li><a href="#">О компании</a></li>
-              <li><a href="#">Оплата и доставка</a></li>
-            </ul><a href="#" class="header__person-btn header__btn"><i class="icon-key"></i><span class="header__btn-text">Личный кабинет</span>
-            </a><a href="#" class="header__cart-btn header__btn"><i class="icon-cart"></i><span class="header__btn-text">Корзина</span><span class="header__cart-btn-num">25</span></a>
+  <div class="wrap clearfix">
+    <div class="header-control">
+      <div class="holder clearfix">
+        <form class="select-form city-switch">
+          <div class="btn-group">
+            <select id="city">
+              <option value="0">Ярославль</option>
+              <option value="1">Вологда</option>
+              <option value="2">Череповец</option>
+              <option value="3">Кострома</option>
+              <option value="4">Иваново</option>
+            </select>
           </div>
+        </form>
+        <div class="header-control__wrap">
+          <ul class="header-control__menu">
+            <li><a href="#">О компании</a></li>
+            <li><a href="#">Оплата и доставка</a></li>
+          </ul><a href="#" class="header-control__person-btn header-control__btn"><i class="icon-key"></i><span class="header-control__btn-text">Личный кабинет</span>
+          </a><a href="#" class="header-control__cart-btn header-control__btn"><i class="icon-cart"></i><span class="header-control__btn-text">Корзина</span><span class="header-control__cart-btn-num">25</span></a>
         </div>
       </div>
+    </div>  
+    <header class="header">
       <div class="header__main">
         <div class="holder clearfix">
           <div class="header__logo">

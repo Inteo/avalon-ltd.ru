@@ -4376,18 +4376,27 @@ button:hover:before {
   padding: 0 50px;
   position: relative;
 }
-.header__control {
+.header-control {
   background: #212121;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
-.header__control-wrap {
+.header-control:before,
+.header-control:after {
+  content: '';
+  display: table;
+}
+.header-control__wrap {
   float: right;
 }
 @media (max-width: 767px) {
-  .header__control-wrap {
+  .header-control__wrap {
     float: none;
   }
 }
-.header__btn {
+.header-control__btn {
   padding: 0 30px;
   line-height: 50px;
   color: #b0bec5;
@@ -4399,54 +4408,54 @@ button:hover:before {
   border-left: 2px solid #101010;
 }
 @media (max-width: 991px) {
-  .header__btn {
+  .header-control__btn {
     padding: 0 20px;
   }
 }
-.header__btn:hover {
+.header-control__btn:hover {
   background: #101010;
   color: #fff;
   text-decoration: none;
 }
-.header__btn:focus {
+.header-control__btn:focus {
   color: #b0bec5;
 }
-.header__btn:focus:hover {
+.header-control__btn:focus:hover {
   color: #fff;
 }
 @media (max-width: 991px) {
-  .header__btn-text {
+  .header-control__btn-text {
     display: none;
   }
 }
 @media (max-width: 991px) {
-  .header__btn i {
+  .header-control__btn i {
     margin-right: 0;
   }
 }
-.header__cart-btn {
+.header-control__cart-btn {
   color: #f44336;
   border-right: 2px solid #101010;
 }
-.header__cart-btn:hover {
+.header-control__cart-btn:hover {
   color: #f44336;
 }
-.header__cart-btn:focus {
+.header-control__cart-btn:focus {
   color: #f44336;
 }
-.header__cart-btn:focus:hover {
+.header-control__cart-btn:focus:hover {
   color: #f44336;
 }
-.header__cart-btn-num {
+.header-control__cart-btn-num {
   margin-left: 10px;
   background: #101010;
   padding: 0 7px;
   border-radius: 5px;
 }
-.header__cart-btn:hover .header__cart-btn-num {
+.header-control__cart-btn:hover .header-control__cart-btn-num {
   background: #000;
 }
-.header__menu {
+.header-control__menu {
   list-style: none;
   padding-left: 0;
   margin-bottom: 0;
@@ -4454,24 +4463,24 @@ button:hover:before {
   vertical-align: top;
 }
 @media (max-width: 580px) {
-  .header__menu {
+  .header-control__menu {
     display: block;
     border-bottom: 2px solid #101010;
     margin: 0 -50px;
     padding: 0 50px;
   }
 }
-.header__menu li {
+.header-control__menu li {
   display: inline-block;
   vertical-align: top;
   line-height: 47px;
   margin-right: 35px;
 }
-.header__menu li a {
+.header-control__menu li a {
   font-size: 14px;
   color: #b0bec5;
 }
-.header__menu li a:hover {
+.header-control__menu li a:hover {
   color: #fff;
   text-decoration: none;
 }

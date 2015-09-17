@@ -4396,100 +4396,109 @@ button:hover:before {
 	padding: 0 50px;
 	position: relative;
 }
+.header-control {
+  background: @black;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  &:before,
+  &:after {
+    content: '';
+    display: table;
+  }
+  &__wrap {
+    float: right;
+    @media @mobile {
+      float: none;
+    }
+  }
+  &__btn {
+    padding: 0 30px;
+    line-height: 50px;
+    color: @gray;
+    display: inline-block;
+    vertical-align: top;
+    font-size: 14px;
+    font-weight: bold;
+    background: @black;
+    border-left: 2px solid @black2;
+    @media @tablet {
+      padding: 0 20px;
+    }
+    &:hover {
+      background: @black2;
+      color: #fff;
+      text-decoration: none;
+    }
+    &:focus {
+      color: @gray;
+    }
+    &:focus:hover {
+      color: #fff;
+    }
+    &-text {
+      @media @tablet {
+        display: none;
+      }
+    }
+    & i {
+      @media @tablet {
+        margin-right: 0;
+      }
+    }
+  }
+  &__cart-btn {
+    color: @orange;
+    border-right: 2px solid @black2;
+    &:hover {
+      color: @orange;
+    }
+    &:focus {
+      color: @orange;
+    }
+    &:focus:hover {
+      color: @orange;
+    }
+    &-num {
+      margin-left: 10px;
+      background: @black2;
+      padding: 0 7px;
+      border-radius: 5px;
+    }
+    &:hover &-num {
+      background: #000;
+    }
+  }
+  &__menu {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
+    display: inline-block;
+    vertical-align: top;
+    @media (max-width: 580px) {
+      display: block;
+      border-bottom: 2px solid @black2;
+      margin: 0 -50px;
+      padding: 0 50px;
+    }
+    & li {
+      display: inline-block;
+      vertical-align: top;
+      line-height: 47px;
+      margin-right: 35px;
+      & a {
+        font-size: 14px;
+        color: @gray;
+        &:hover {
+          color: #fff;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
 .header {
-	&__control {
-		background: @black;
-		&-wrap {
-			float: right;
-			@media @mobile {
-				float: none;
-			}
-		}
-	}
-	&__btn {
-		padding: 0 30px;
-		line-height: 50px;
-		color: @gray;
-		display: inline-block;
-		vertical-align: top;
-		font-size: 14px;
-		font-weight: bold;
-		background: @black;
-		border-left: 2px solid @black2;
-		@media @tablet {
-			padding: 0 20px;
-		}
-		&:hover {
-			background: @black2;
-			color: #fff;
-			text-decoration: none;
-		}
-		&:focus {
-			color: @gray;
-		}
-		&:focus:hover {
-			color: #fff;
-		}
-		&-text {
-			@media @tablet {
-				display: none;
-			}
-		}
-		& i {
-			@media @tablet {
-				margin-right: 0;
-			}
-		}
-	}
-	&__cart-btn {
-		color: @orange;
-		border-right: 2px solid @black2;
-		&:hover {
-			color: @orange;
-		}
-		&:focus {
-			color: @orange;
-		}
-		&:focus:hover {
-			color: @orange;
-		}
-		&-num {
-			margin-left: 10px;
-			background: @black2;
-			padding: 0 7px;
-			border-radius: 5px;
-		}
-		&:hover &-num {
-			background: #000;
-		}
-	}
-	&__menu {
-		list-style: none;
-		padding-left: 0;
-		margin-bottom: 0;
-		display: inline-block;
-		vertical-align: top;
-		@media (max-width: 580px) {
-			display: block;
-			border-bottom: 2px solid @black2;
-			margin: 0 -50px;
-			padding: 0 50px;
-		}
-		& li {
-			display: inline-block;
-			vertical-align: top;
-			line-height: 47px;
-			margin-right: 35px;
-			& a {
-				font-size: 14px;
-				color: @gray;
-				&:hover {
-					color: #fff;
-					text-decoration: none;
-				}
-			}
-		}
-	}
 	&__logo {
 		float: left;
 		width: 560px;
