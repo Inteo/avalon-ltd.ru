@@ -48,6 +48,7 @@ function check_min_amounter(that) {
 	}
 }
 $(document).ready(function(){
+	$(".header-control").Stickyfill();
 	$(".amounter").each(function(){
 		if($(this).find(".amounter__numb").val() <= $(this).find(".amounter__numb").data("min")) {
 			$(this).find(".amounter__btn_down").addClass("amounter__btn_min")
@@ -81,16 +82,20 @@ $(document).ready(function(){
   }); 
   $(".catalog").each(function(){
   	var max_height = 0;
-  	if($(window).width() >= 480) {
-  		$(this).find(".catalog__item-holder").each(function(){
-	  		var hidden = $(this).closest('.switcher__holder');
-				hidden.css("opacity", "0.01").show();
-	  		if($(this).height() > max_height) {
-	  			max_height = $(this).height();
-	  		}
-	  		hidden.hide().css("opacity", "1");
-	  	});
-	  	$(this).find(".catalog__item-holder").height(max_height);
-  	}
+  	var that = $(this);
+  	setTimeout(function(){
+  		if($(window).width() >= 480) {
+	  		that.find(".catalog__item-holder").each(function(){
+		  		var hidden = $(this).closest('.switcher__holder');
+					hidden.css("opacity", "0.01").show();
+		  		if($(this).outerHeight() > max_height) {
+		  			max_height = $(this).outerHeight();
+		  		}
+		  		hidden.hide().css("opacity", "1");
+		  	});
+		  	that.find(".catalog__item-holder").outerHeight(max_height);
+	  	}
+  	}, 1);
+  	
   })
 });

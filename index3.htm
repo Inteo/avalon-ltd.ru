@@ -31,7 +31,36 @@
   <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic&subset=all" rel="stylesheet" type="text/css" />
   <script>
     $(document).ready(function(){
-      $(".header-control").Stickyfill();
+      var res = 5;
+      switch(true) {
+        case ($(window).width() <= 479):
+          res = 1;
+          break;
+        case ($(window).width() <= 767):
+          res = 2;
+          break;
+        case ($(window).width() <= 991):
+          res = 3;
+          break;
+        case ($(window).width() <= 1199):
+          res = 4;
+          break;
+      } 
+      var accom_slider = $('.goods__accom .catalog__holder');
+      accom_slider.carouFredSel({
+        responsive: true,
+        items: res,
+        auto: false,
+        width: "100%",
+        height: "auto",
+        prev: ".catalog__arrow_left",
+        next: ".catalog__arrow_right",
+        scroll: {
+          fx: 'crossfade',
+        }
+      });
+      $(".goods__accom .caroufredsel_wrapper").width($(".goods__accom .caroufredsel_wrapper").width() + 20);
+      $(".goods__accom .caroufredsel_wrapper").height($(".goods__accom .caroufredsel_wrapper").height() + 20);
     });
   </script>
 </head>
@@ -111,240 +140,347 @@
             <li><a href="#">Главная</a><i class="icon-right-arrow"></i></li><li><a href="#">Каталог</a><i class="icon-right-arrow"></i></li><li><a href="#">Теплоизоляция</a><i class="icon-right-arrow"></i></li><li><a href="#">Каркасные стены</a><i class="icon-right-arrow"></i></li>
           </ul>
           <h1 class="goods__title">Утеплитель «Лайт Баттс»</h1>
-          <div class="goods__holder">
-            <div class="goods__img">
-              <div class="goods-carou">
-                <a href="#" class="goods-carou__holder">
-                  <i class="icon-lens"></i>
-                  <img src="f/i/goods/1.jpg" alt="">
+          <div class="goods__wrap">
+            <div class="goods__holder">
+              <div class="goods__img">
+                <div class="goods-carou">
+                  <a href="#" class="goods-carou__holder">
+                    <i class="icon-lens"></i>
+                    <img src="f/i/goods/1.jpg" alt="">
+                  </a>
+                  <div class="goods-carou__pager">
+                    <a href="#" class="selected"><img src="f/i/goods/1.jpg" alt="">
+                    </a><a href="#"><img src="f/i/goods/2.jpg" alt="">
+                    </a><a href="#"><img src="f/i/goods/1.jpg" alt="">
+                    </a><a href="#"><img src="f/i/goods/1.jpg" alt="">
+                    </a><a href="#"><img src="f/i/goods/1.jpg" alt=""></a>
+                  </div>
+                </div>
+                <p class="goods__hint"><span>Применение:</span> балконы, каркасные стены, мансарды, перегородки, перекрытия между этажами, полы, полы над холодным подвалом, скатные кровли, стены с отделкой сайдингом </p>
+              </div>
+              <div class="goods__detail">
+                <img class="goods__brand" src="f/i/brands/1.png">
+                <p class="goods__short">Для теплоизоляции частных домов и квартир, применяется в скатных кровлях, мансардах, каркасных стенах, в конструкциях стен с отделкой сайдингом, перегородках, перекрытиях по лагам. </p>
+                <div class="goods__size">
+                  <p class="goods__subtitle">Выберите размер</p>
+                  <div class="goods-size">
+                    <div class="goods-size__row goods-size__row_head">
+                      <div class="goods-size__cell"></div>
+                      <div class="goods-size__cell"><span>Габариты</span></div>
+                      <div class="goods-size__cell"><span>Количество в упакове</span></div>
+                      <div class="goods-size__cell"><span>Площадь</span></div>
+                      <div class="goods-size__cell"><span>Объем</span></div>
+                    </div>
+                  </div>
+                  <div class="table-input goods-size">
+                    <input type="radio" id="size1" name="size" class="table-input__control" checked>
+                    <label for="size1">
+                      <span class="table-input__row goods-size__row">
+                        <span class="table-input__cell goods-size__cell"></span>
+                        <span class="table-input__cell goods-size__cell"><b>800 х</b> <b>600 х</b> 50<span>мм</span></span>
+                        <span class="table-input__cell goods-size__cell">12<span>шт.</span></span>
+                        <span class="table-input__cell goods-size__cell">5,76<span>м<sup>2</sup></span></span>
+                        <span class="table-input__cell goods-size__cell">0,288<span>м<sup>3</sup></span></span>
+                      </span>
+                    </label>
+                  </div>
+                  <div class="table-input goods-size">
+                    <input type="radio" id="size2" name="size" class="table-input__control">
+                    <label for="size2">
+                      <span class="table-input__row goods-size__row">
+                        <span class="table-input__cell goods-size__cell"></span>
+                        <span class="table-input__cell goods-size__cell"><b>800 х</b> <b>600 х</b> 100<span>мм</span></span>
+                        <span class="table-input__cell goods-size__cell">6<span>шт.</span></span>
+                        <span class="table-input__cell goods-size__cell">2,88<span>м<sup>2</sup></span></span>
+                        <span class="table-input__cell goods-size__cell">0,288<span>м<sup>3</sup></span></span>
+                      </span>
+                    </label>
+                  </div>
+                  <div class="table-input goods-size">
+                    <input type="radio" id="size3" name="size" class="table-input__control">
+                    <label for="size3">
+                      <span class="table-input__row goods-size__row">
+                        <span class="table-input__cell goods-size__cell"></span>
+                        <span class="table-input__cell goods-size__cell"><b>1200 х</b> <b>600 х</b> 100<span>мм</span></span>
+                        <span class="table-input__cell goods-size__cell">6<span>шт.</span></span>
+                        <span class="table-input__cell goods-size__cell">4,32<span>м<sup>2</sup></span></span>
+                        <span class="table-input__cell goods-size__cell">0,432<span>м<sup>3</sup></span></span>
+                      </span>
+                    </label>
+                  </div>
+                  <div class="table-input goods-size">
+                    <input type="radio" id="size4" name="size" class="table-input__control">
+                    <label for="size4">
+                      <span class="table-input__row goods-size__row">
+                        <span class="table-input__cell goods-size__cell"></span>
+                        <span class="table-input__cell goods-size__cell"><b>1000 х</b> <b>600 х</b> 150<span>мм</span></span>
+                        <span class="table-input__cell goods-size__cell">5<span>шт.</span></span>
+                        <span class="table-input__cell goods-size__cell">3,6<span>м<sup>2</sup></span></span>
+                        <span class="table-input__cell goods-size__cell">0,54<span>м<sup>3</sup></span></span>
+                      </span>
+                    </label>
+                  </div>
+                </div> 
+                <p class="goods__hint">Под заказ возможна поставка других толщин с шагом 10 мм. Для подробной консультации обращайтесь к менеджерам.</p>
+                <span class="goods__price">569<span class="rub">&#8399;</span></span><span class="goods__for-one">за упаковку</span><span class="goods__in-stock"><i class="icon-ok"></i>В наличии</span> <!-- <span class="goods__in-stock goods__in-stock_not"><i class="icon-time"></i>Под заказ</span> -->
+                <div class="goods__control">
+                  <div class="goods__control-wrap">
+                      <div class="amounter goods__amounter">
+                      <input type="number" data-ride="spinner" id="spinner1" class="amounter__numb" value="1" data-min="1" onclick="return false;">
+                      <div class="amounter__btns">
+                        <button class="amounter__btn amounter__btn_up" type="button" data-value="1" data-target="#spinner1" data-toggle="spinner" onclick="return false;"></button>
+                        <button class="amounter__btn amounter__btn_down" type="button" data-value="-1" data-target="#spinner1" data-toggle="spinner" onclick="return false;"></button>
+                      </div>
+                    </div>
+                    <a href="#" class="white-btn goods__calc"><i class="icon-calc"></i>Рассчитать количество</a>
+                    <div class="goods__info">
+                      <div class="info-line">
+                        <span class="info-line__name">Объем</span>
+                        <span class="info-line__value">800 х 600 х 50 <span>мм</span></span>
+                      </div>
+                      <div class="info-line">
+                        <span class="info-line__name">Площадь</span>
+                        <span class="info-line__value">17,28 <span>м<sup>2</sup></span></span>
+                      </div>
+                      <div class="info-line">
+                        <span class="info-line__name">Вес</span>
+                        <span class="info-line__value">27,66 <span>кг</span></span>
+                      </div>
+                      <div class="info-line info-line_bold">
+                        <span class="info-line__name">Стоимость</span>
+                        <span class="info-line__value">1395 <span class="rub">&#8399;</span></span>
+                      </div>
+                    </div>
+                  </div><div class="goods__control-wrap">
+                    <a href="#" class="orange-btn goods__in-cart"><i class="icon-in-cart"></i>В корзину</a>
+                    <div class="goods__control-link">
+                      <a href="#" class="iconed-link"><i class="icon-procent"></i>Хотите дешевле?</a>
+                    </div>
+                    <div class="goods__control-link">
+                      <a href="#" class="iconed-link"><i class="icon-rub"></i>Купить в кредит</a>
+                    </div>
+                    <div class="goods__control-link">
+                      <a href="#" class="iconed-link"><i class="icon-star"></i>Купить быстро в 1 клик</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="switcher">
+                <div class="switcher__control switcher__control_big switcher__control_gray_white switcher__control_gray">
+                  <div class="switcher__btn switcher__btn_active"><a href="#">Описание</a>
+                  </div><div class="switcher__btn"><a href="#">Технические характеристики</a>
+                  </div><div class="switcher__btn"><a href="#">Сертификаты</a>
+                  </div><div class="switcher__btn"><a href="#">Брошюры</a></div>
+                </div>
+                <div class="goods__description">
+                  <div class="switcher__holder switcher__holder_active">
+                    <div class="goods__text">
+                      <p>ROCKWOOL ЛАЙТ БАТТС® с технологией Флекси – лёгкие гидрофобизированные теплоизоляционные плиты, изготовленные из каменной ваты на основе базальтовых пород.</p>
+                      <p>Главной особенностью этих плит является использование уникальной Технологии Флекси - один край плиты имеет способность поджиматься и разжиматься, т.е. пружинить, благодаря чему облегчается установка материала в конструкции на деревянном или металлическом каркасе. Этот край располагается с длинной стороны плиты (1000 мм), ширина самой кромки составляет 50 мм. Флексированный край промаркирован с торца плиты.</p>
+                    </div>
+                    <p class="goods__subtitle">Преимущества продукта:</p>
+                    <div class="goods__marked">
+                      <ul class="marked-list">
+                        <li>Технология Флекси – пружинящий край</li>
+                        <li>Плотное примыкание плит – отсутствие мостиков холода</li>
+                        <li>Упощенный монтаж плит</li>
+                      </ul>
+                    </div><div class="goods__marked">
+                      <ul class="marked-list">
+                        <li>Долговечность</li>
+                        <li>Пожаробезопасность</li>
+                        <li>Экологичность</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="switcher__holder">
+                    <div class="goods__tech">
+                      <div class="goods__tech-holder">
+                        <p class="goods__tech-name">Теплопроводность</p>
+                      </div><div class="goods__tech-holder">
+                        <p class="goods__tech-value">λ<sub>10</sub> = 0,036 Вт/(м·К)</p>
+                        <p class="goods__tech-value">λ<sup>25</sup> = 0,037 Вт/(м·К)</p>
+                        <p class="goods__tech-value">λ<sub>А</sub> = 0,039 Вт/(м·К)</p>
+                        <p class="goods__tech-value">λ<sub>Б</sub> = 0,041 Вт/(м·К)</p>
+                      </div>
+                    </div>
+                    <div class="goods__tech">
+                      <div class="goods__tech-holder">
+                        <p class="goods__tech-name">Группа горючести</p>
+                      </div><div class="goods__tech-holder">
+                        <p class="goods__tech-value">НГ. Класс пожарной опасности - КМ0</p>
+                      </div>
+                    </div>
+                    <div class="goods__tech">
+                      <div class="goods__tech-holder">
+                        <p class="goods__tech-name">Водопоглощение при полном погружении</p>
+                      </div><div class="goods__tech-holder">
+                        <p class="goods__tech-value">не более 1,0кг/м<sup>2</sup></p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="switcher__holder">
+                    <div class="certif">
+                      <div class="certif__item">
+                        <a href="#">
+                          <span class="certif__img">
+                            <i></i>
+                            <img src="f/i/certif.jpg" alt="">
+                          </span>
+                          <span class="certif__name">Экспертное заключение/СЭЗ</span>
+                          <span class="certif__size">0,7 Мб</span>
+                        </a>
+                      </div><div class="certif__item">
+                        <a href="#">
+                          <span class="certif__img">
+                            <i></i>
+                            <img src="f/i/certif.jpg" alt="">
+                          </span>
+                          <span class="certif__name">Экспертное заключение/СЭЗ</span>
+                          <span class="certif__size">0,7 Мб</span>
+                        </a>
+                      </div><div class="certif__item">
+                        <a href="#">
+                          <span class="certif__img">
+                            <i></i>
+                            <img src="f/i/certif.jpg" alt="">
+                          </span>
+                          <span class="certif__name">Экспертное заключение/СЭЗ</span>
+                          <span class="certif__size">0,7 Мб</span>
+                        </a>
+                      </div><div class="certif__item">
+                        <a href="#">
+                          <span class="certif__img">
+                            <i></i>
+                            <img src="f/i/certif.jpg" alt="">
+                          </span>
+                          <span class="certif__name">Экспертное заключение/СЭЗ</span>
+                          <span class="certif__size">0,7 Мб</span>
+                        </a>
+                      </div><div class="certif__item">
+                        <a href="#">
+                          <span class="certif__img">
+                            <i></i>
+                            <img src="f/i/certif.jpg" alt="">
+                          </span>
+                          <span class="certif__name">Экспертное заключение/СЭЗ</span>
+                          <span class="certif__size">0,7 Мб</span>
+                        </a>
+                      </div><div class="certif__item">
+                        <a href="#">
+                          <span class="certif__img">
+                            <i></i>
+                            <img src="f/i/certif.jpg" alt="">
+                          </span>
+                          <span class="certif__name">Экспертное заключение/СЭЗ</span>
+                          <span class="certif__size">0,7 Мб</span>
+                        </a>
+                      </div><div class="certif__item">
+                        <a href="#">
+                          <span class="certif__img">
+                            <i></i>
+                            <img src="f/i/certif.jpg" alt="">
+                          </span>
+                          <span class="certif__name">Экспертное заключение/СЭЗ</span>
+                          <span class="certif__size">0,7 Мб</span>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="switcher__holder">
+                    <p><a href="#" class="download-link iconize-download">Лайт Баттс Скандик<span>0,5 Мб</span></a></p>
+                    <a href="#" class="download-link iconize-download">Инструкция по хранению<span>1,4 Мб</span></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="goods__service">
+              <img src="f/i/goods-service.png" alt="">
+              <div class="goods__service-text">
+                <p class="goods__service-title">Монтаж утеплителя</p>
+                <p class="goods__service-description">Наша компания готова выполнить любые виды работ по монтажу утеплителей.</p>
+              </div>
+              <div class="goods__service-btn">
+                <a href="#" class="gray-btn">Подробнее<i class="icon-left-arrow"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="catalog goods__accom">
+            <p class="goods__accom-title">Сопутствующие товары</p>
+            <div class="catalog__holder">
+              <div class="catalog__item">
+                <a href="#" class="catalog__item-holder">
+                  <span class="catalog__img">
+                    <img src="f/i/catalog/2.jpg" alt="">
+                  </span>
+                  <span class="catalog__in-stock"><i class="icon-ok"></i>В наличии</span>
+                  <span class="catalog__brand">Rockwool</span>
+                  <span class="catalog__name">Утеплитель Флор Баттс</span>                  
+                  <span class="catalog__price">от  <b>589</b> <span class="rub">&#8399;</span> / шт.</span>
                 </a>
-                <div class="goods-carou__pager">
-                  <a href="#" class="selected"><img src="f/i/goods/1.jpg" alt="">
-                  </a><a href="#"><img src="f/i/goods/2.jpg" alt="">
-                  </a><a href="#"><img src="f/i/goods/1.jpg" alt="">
-                  </a><a href="#"><img src="f/i/goods/1.jpg" alt="">
-                  </a><a href="#"><img src="f/i/goods/1.jpg" alt=""></a>
-                </div>
-              </div>
-              <p class="goods__hint"><span>Применение:</span> балконы, каркасные стены, мансарды, перегородки, перекрытия между этажами, полы, полы над холодным подвалом, скатные кровли, стены с отделкой сайдингом </p>
-            </div>
-            <div class="goods__detail">
-              <img class="goods__brand" src="f/i/brands/1.png">
-              <p class="goods__short">Для теплоизоляции частных домов и квартир, применяется в скатных кровлях, мансардах, каркасных стенах, в конструкциях стен с отделкой сайдингом, перегородках, перекрытиях по лагам. </p>
-              <div class="goods__size">
-                <p class="goods__subtitle">Выберите размер</p>
-                <div class="goods-size">
-                  <div class="goods-size__row goods-size__row_head">
-                    <div class="goods-size__cell"></div>
-                    <div class="goods-size__cell"><span>Габариты</span></div>
-                    <div class="goods-size__cell"><span>Количество в упакове</span></div>
-                    <div class="goods-size__cell"><span>Площадь</span></div>
-                    <div class="goods-size__cell"><span>Объем</span></div>
-                  </div>
-                </div>
-                <div class="table-input goods-size">
-                  <input type="radio" id="size1" name="size" class="table-input__control" checked>
-                  <label for="size1">
-                    <span class="table-input__row goods-size__row">
-                      <span class="table-input__cell goods-size__cell"></span>
-                      <span class="table-input__cell goods-size__cell"><b>800 х</b> <b>600 х</b> 50<span>мм</span></span>
-                      <span class="table-input__cell goods-size__cell">12<span>шт.</span></span>
-                      <span class="table-input__cell goods-size__cell">5,76<span>м<sup>2</sup></span></span>
-                      <span class="table-input__cell goods-size__cell">0,288<span>м<sup>3</sup></span></span>
-                    </span>
-                  </label>
-                </div>
-                <div class="table-input goods-size">
-                  <input type="radio" id="size2" name="size" class="table-input__control">
-                  <label for="size2">
-                    <span class="table-input__row goods-size__row">
-                      <span class="table-input__cell goods-size__cell"></span>
-                      <span class="table-input__cell goods-size__cell"><b>800 х</b> <b>600 х</b> 100<span>мм</span></span>
-                      <span class="table-input__cell goods-size__cell">6<span>шт.</span></span>
-                      <span class="table-input__cell goods-size__cell">2,88<span>м<sup>2</sup></span></span>
-                      <span class="table-input__cell goods-size__cell">0,288<span>м<sup>3</sup></span></span>
-                    </span>
-                  </label>
-                </div>
-                <div class="table-input goods-size">
-                  <input type="radio" id="size3" name="size" class="table-input__control">
-                  <label for="size3">
-                    <span class="table-input__row goods-size__row">
-                      <span class="table-input__cell goods-size__cell"></span>
-                      <span class="table-input__cell goods-size__cell"><b>1200 х</b> <b>600 х</b> 100<span>мм</span></span>
-                      <span class="table-input__cell goods-size__cell">6<span>шт.</span></span>
-                      <span class="table-input__cell goods-size__cell">4,32<span>м<sup>2</sup></span></span>
-                      <span class="table-input__cell goods-size__cell">0,432<span>м<sup>3</sup></span></span>
-                    </span>
-                  </label>
-                </div>
-                <div class="table-input goods-size">
-                  <input type="radio" id="size4" name="size" class="table-input__control">
-                  <label for="size4">
-                    <span class="table-input__row goods-size__row">
-                      <span class="table-input__cell goods-size__cell"></span>
-                      <span class="table-input__cell goods-size__cell"><b>1000 х</b> <b>600 х</b> 150<span>мм</span></span>
-                      <span class="table-input__cell goods-size__cell">5<span>шт.</span></span>
-                      <span class="table-input__cell goods-size__cell">3,6<span>м<sup>2</sup></span></span>
-                      <span class="table-input__cell goods-size__cell">0,54<span>м<sup>3</sup></span></span>
-                    </span>
-                  </label>
-                </div>
-              </div> 
-              <p class="goods__hint">Под заказ возможна поставка других толщин с шагом 10 мм. Для подробной консультации обращайтесь к менеджерам.</p>
-              <span class="goods__price">569<span class="rub">&#8399;</span></span><span class="goods__for-one">за упаковку</span><span class="goods__in-stock"><i class="icon-ok"></i>В наличии</span> <!-- <span class="goods__in-stock goods__in-stock_not"><i class="icon-time"></i>Под заказ</span> -->
-              <div class="goods__control">
-                <div class="goods__control-wrap">
-                    <div class="amounter goods__amounter">
-                    <input type="number" data-ride="spinner" id="spinner1" class="amounter__numb" value="1" data-min="1" onclick="return false;">
-                    <div class="amounter__btns">
-                      <button class="amounter__btn amounter__btn_up" type="button" data-value="1" data-target="#spinner1" data-toggle="spinner" onclick="return false;"></button>
-                      <button class="amounter__btn amounter__btn_down" type="button" data-value="-1" data-target="#spinner1" data-toggle="spinner" onclick="return false;"></button>
-                    </div>
-                  </div>
-                  <a href="#" class="white-btn goods__calc"><i class="icon-calc"></i>Рассчитать количество</a>
-                  <div class="goods__info">
-                    <div class="info-line">
-                      <span class="info-line__name">Объем</span>
-                      <span class="info-line__value">800 х 600 х 50 <span>мм</span></span>
-                    </div>
-                    <div class="info-line">
-                      <span class="info-line__name">Площадь</span>
-                      <span class="info-line__value">17,28 <span>м<sup>2</sup></span></span>
-                    </div>
-                    <div class="info-line">
-                      <span class="info-line__name">Вес</span>
-                      <span class="info-line__value">27,66 <span>кг</span></span>
-                    </div>
-                    <div class="info-line info-line_bold">
-                      <span class="info-line__name">Стоимость</span>
-                      <span class="info-line__value">1395 <span class="rub">&#8399;</span></span>
-                    </div>
-                  </div>
-                </div><div class="goods__control-wrap">
-                  <a href="#" class="orange-btn goods__in-cart"><i class="icon-in-cart"></i>В корзину</a>
-                  <div class="goods__control-link">
-                    <a href="#" class="iconed-link"><i class="icon-procent"></i>Хотите дешевле?</a>
-                  </div>
-                  <div class="goods__control-link">
-                    <a href="#" class="iconed-link"><i class="icon-rub"></i>Купить в кредит</a>
-                  </div>
-                  <div class="goods__control-link">
-                    <a href="#" class="iconed-link"><i class="icon-star"></i>Купить быстро в 1 клик</a>
-                  </div>
-                </div>
+              </div><div class="catalog__item">
+                <a href="#" class="catalog__item-holder">
+                  <span class="catalog__img">
+                    <img src="f/i/catalog/3.jpg" alt="">
+                  </span>
+                  <span class="catalog__in-stock catalog__in-stock_not"><i class="icon-time"></i>Под заказ</span>
+                  <span class="catalog__brand">Rockwool</span>
+                  <span class="catalog__name">Утеплитель Лайт Баттс</span>                  
+                  <span class="catalog__price">от  <b>240</b> <span class="rub">&#8399;</span> / шт.</span>
+                </a>
+              </div><div class="catalog__item">
+                <a href="#" class="catalog__item-holder">
+                  <span class="catalog__img">
+                    <img src="f/i/catalog/4.jpg" alt="">
+                  </span>
+                  <span class="catalog__in-stock"><i class="icon-ok"></i>В наличии</span>
+                  <span class="catalog__brand">Rockwool</span>
+                  <span class="catalog__name">Утеплитель Лайт Баттс Скандик XL 100мм</span>                  
+                  <span class="catalog__price">от  <b>325</b> <span class="rub">&#8399;</span> / шт.</span>
+                </a>
+              </div><div class="catalog__item">
+                <a href="#" class="catalog__item-holder">
+                   <span class="catalog__img">
+                    <img src="f/i/catalog/5.jpg" alt="">
+                  </span>
+                  <span class="catalog__in-stock"><i class="icon-ok"></i>В наличии</span>
+                  <span class="catalog__brand">Rockwool</span>
+                  <span class="catalog__name">Утеплитель Акустик Баттс</span>                  
+                  <span class="catalog__price">от  <b>469</b> <span class="rub">&#8399;</span> / шт.</span>
+                </a>
+              </div><div class="catalog__item">
+                <a href="#" class="catalog__item-holder">
+                  <span class="catalog__img">
+                    <img src="f/i/catalog/6.jpg" alt="">
+                  </span>
+                  <span class="catalog__in-stock"><i class="icon-ok"></i>В наличии</span>
+                  <span class="catalog__brand">Пеноплекс</span>
+                  <span class="catalog__name">Утеплитель Пеноплекс Стена</span>                  
+                  <span class="catalog__price"><b>3500</b> <span class="rub">&#8399;</span> / шт.</span>
+                </a>
+              </div><div class="catalog__item">
+                <a href="#" class="catalog__item-holder">
+                  <span class="catalog__img">
+                    <img src="f/i/catalog/6.jpg" alt="">
+                  </span>
+                  <span class="catalog__in-stock"><i class="icon-ok"></i>В наличии</span>
+                  <span class="catalog__brand">Пеноплекс</span>
+                  <span class="catalog__name">Утеплитель Пеноплекс Стена</span>                  
+                  <span class="catalog__price"><b>3500</b> <span class="rub">&#8399;</span> / шт.</span>
+                </a>
+              </div><div class="catalog__item">
+                <a href="#" class="catalog__item-holder">
+                  <span class="catalog__img">
+                    <img src="f/i/catalog/6.jpg" alt="">
+                  </span>
+                  <span class="catalog__in-stock"><i class="icon-ok"></i>В наличии</span>
+                  <span class="catalog__brand">Пеноплекс</span>
+                  <span class="catalog__name">Утеплитель Пеноплекс Стена</span>                  
+                  <span class="catalog__price"><b>3500</b> <span class="rub">&#8399;</span> / шт.</span>
+                </a>
               </div>
             </div>
-            <div class="switcher">
-              <div class="switcher__control switcher__control_big switcher__control_gray_white switcher__control_gray">
-                <div class="switcher__btn switcher__btn_active"><a href="#">Описание</a>
-                </div><div class="switcher__btn"><a href="#">Технические характеристики</a>
-                </div><div class="switcher__btn"><a href="#">Сертификаты</a>
-                </div><div class="switcher__btn"><a href="#">Брошюры</a></div>
-              </div>
-              <div class="goods__description">
-                <div class="switcher__holder switcher__holder_active">
-                  <div class="goods__text">
-                    <p>ROCKWOOL ЛАЙТ БАТТС® с технологией Флекси – лёгкие гидрофобизированные теплоизоляционные плиты, изготовленные из каменной ваты на основе базальтовых пород.</p>
-                    <p>Главной особенностью этих плит является использование уникальной Технологии Флекси - один край плиты имеет способность поджиматься и разжиматься, т.е. пружинить, благодаря чему облегчается установка материала в конструкции на деревянном или металлическом каркасе. Этот край располагается с длинной стороны плиты (1000 мм), ширина самой кромки составляет 50 мм. Флексированный край промаркирован с торца плиты.</p>
-                  </div>
-                  <p class="goods__subtitle">Преимущества продукта:</p>
-                  <div class="goods__marked">
-                    <ul class="marked-list">
-                      <li>Технология Флекси – пружинящий край</li>
-                      <li>Плотное примыкание плит – отсутствие мостиков холода</li>
-                      <li>Упощенный монтаж плит</li>
-                    </ul>
-                  </div><div class="goods__marked">
-                    <ul class="marked-list">
-                      <li>Долговечность</li>
-                      <li>Пожаробезопасность</li>
-                      <li>Экологичность</li>
-                    </ul>
-                  </div>
-                </div>
-                <div class="switcher__holder">
-                  <div class="goods__tech">
-                    <div class="goods__tech-holder">
-                      <p class="goods__tech-name">Теплопроводность</p>
-                    </div><div class="goods__tech-holder">
-                      <p class="goods__tech-value">λ<sub>10</sub> = 0,036 Вт/(м·К)</p>
-                      <p class="goods__tech-value">λ<sup>25</sup> = 0,037 Вт/(м·К)</p>
-                      <p class="goods__tech-value">λ<sub>А</sub> = 0,039 Вт/(м·К)</p>
-                      <p class="goods__tech-value">λ<sub>Б</sub> = 0,041 Вт/(м·К)</p>
-                    </div>
-                  </div>
-                  <div class="goods__tech">
-                    <div class="goods__tech-holder">
-                      <p class="goods__tech-name">Группа горючести</p>
-                    </div><div class="goods__tech-holder">
-                      <p class="goods__tech-value">НГ. Класс пожарной опасности - КМ0</p>
-                    </div>
-                  </div>
-                  <div class="goods__tech">
-                    <div class="goods__tech-holder">
-                      <p class="goods__tech-name">Водопоглощение при полном погружении</p>
-                    </div><div class="goods__tech-holder">
-                      <p class="goods__tech-value">не более 1,0кг/м<sup>2</sup></p>
-                    </div>
-                  </div>
-                </div>
-                <div class="switcher__holder">
-                  <div class="certif">
-                    <div class="certif__item">
-                      <a href="#">
-                        <span class="certif__img">
-                          <i></i>
-                          <img src="f/i/certif.jpg" alt="">
-                        </span>
-                        <span class="certif__name">Экспертное заключение/СЭЗ</span>
-                        <span class="certif__size">0,7 Мб</span>
-                      </a>
-                    </div><div class="certif__item">
-                      <a href="#">
-                        <span class="certif__img">
-                          <i></i>
-                          <img src="f/i/certif.jpg" alt="">
-                        </span>
-                        <span class="certif__name">Экспертное заключение/СЭЗ</span>
-                        <span class="certif__size">0,7 Мб</span>
-                      </a>
-                    </div><div class="certif__item">
-                      <a href="#">
-                        <span class="certif__img">
-                          <i></i>
-                          <img src="f/i/certif.jpg" alt="">
-                        </span>
-                        <span class="certif__name">Экспертное заключение/СЭЗ</span>
-                        <span class="certif__size">0,7 Мб</span>
-                      </a>
-                    </div><div class="certif__item">
-                      <a href="#">
-                        <span class="certif__img">
-                          <i></i>
-                          <img src="f/i/certif.jpg" alt="">
-                        </span>
-                        <span class="certif__name">Экспертное заключение/СЭЗ</span>
-                        <span class="certif__size">0,7 Мб</span>
-                      </a>
-                    </div><div class="certif__item">
-                      <a href="#">
-                        <span class="certif__img">
-                          <i></i>
-                          <img src="f/i/certif.jpg" alt="">
-                        </span>
-                        <span class="certif__name">Экспертное заключение/СЭЗ</span>
-                        <span class="certif__size">0,7 Мб</span>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div class="switcher__holder">
-                  <p><a href="#" class="download-link iconize-download">Лайт Баттс Скандик<span>0,5 Мб</span></a></p>
-                  <a href="#" class="download-link iconize-download">Инструкция по хранению<span>1,4 Мб</span></a>
-                </div>
-              </div>
-            </div>
+            <a href="#" class="catalog__arrow catalog__arrow_left"></a><a href="#" class="catalog__arrow catalog__arrow_right"></a>
           </div>
         </div>
       </section>

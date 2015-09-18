@@ -30,7 +30,6 @@
   <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic&subset=all" rel="stylesheet" type="text/css" />
   <script>
     $(document).ready(function(){
-      $(".header-control").Stickyfill();
       var about_slider = $('.about-slider__holder')
       about_slider.carouFredSel({
         responsive: true,
@@ -65,22 +64,7 @@
           fx: 'fade',
         }
       });
-      $(".slider .caroufredsel_wrapper").width($(".slider .caroufredsel_wrapper").width() + 30);
       $(".switcher__holder").not(".switcher__holder_active").hide();
-      /*var sItemWidth;
-      var sItemPadding = $(".services__item").outerWidth() - $(".services__item").width();
-      if($(window).width() > 1199) {
-        sItemWidth = $(".services__content").width()/3;
-      }
-      else if($(window).width() <= 1199 && $(window).width() > 767) {
-        sItemWidth = $(".services__content").width()/2;
-      }
-      else if($(window).width() <= 600) {
-        sItemWidth = $(".services__content").width();
-      }
-
-      $(".services__item").width(sItemWidth - sItemPadding);
-      $(".services__scroller").width(sItemWidth * 6);*/
 
       var Scroll  = new IScroll('#scroll-wrap', { 
         scrollX: true, scrollY: false, 
@@ -111,7 +95,9 @@
         else {
           $(this).closest(".main-screen .switcher__control").addClass("switcher__control_gray");
         }
+        $(".slider .caroufredsel_wrapper").width($(".slider .caroufredsel_wrapper").width() + 30);
       });
+      $(".slider .caroufredsel_wrapper").width($(".slider .caroufredsel_wrapper").width() + 30);
     });
   </script>
 </head>
