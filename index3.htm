@@ -28,7 +28,6 @@
   <script src="f/js/common.js"></script>
   <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,regular,italic,bold,bolditalic&subset=cyrillic" rel="stylesheet" type="text/css" />
   <link href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,700&subset=cyrillic' rel='stylesheet' type='text/css'>
-  <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic&subset=all" rel="stylesheet" type="text/css" />
   <script>
     $(document).ready(function(){
       var res = 5;
@@ -55,9 +54,9 @@
         height: "auto",
         prev: ".catalog__arrow_left",
         next: ".catalog__arrow_right",
-        scroll: {
+        /*scroll: {
           fx: 'crossfade',
-        }
+        }*/
       });
       $(".goods__accom .caroufredsel_wrapper").width($(".goods__accom .caroufredsel_wrapper").width() + 20);
       $(".goods__accom .caroufredsel_wrapper").height($(".goods__accom .caroufredsel_wrapper").height() + 20);
@@ -116,7 +115,7 @@
       </div>
     </header>
     <div class="content">
-      <section class="goods">
+      <section class="goods main">
         <div class="holder clearfix">
           <div class="switcher">
             <div class="main-control">
@@ -139,7 +138,7 @@
           <ul class="breadcrumbs">
             <li><a href="#">Главная</a><i class="icon-right-arrow"></i></li><li><a href="#">Каталог</a><i class="icon-right-arrow"></i></li><li><a href="#">Теплоизоляция</a><i class="icon-right-arrow"></i></li><li><a href="#">Каркасные стены</a><i class="icon-right-arrow"></i></li>
           </ul>
-          <h1 class="goods__title">Утеплитель «Лайт Баттс»</h1>
+          <h1 class="main-title">Утеплитель «Лайт Баттс»</h1>
           <div class="goods__wrap">
             <div class="goods__holder">
               <div class="goods__img">
@@ -222,7 +221,7 @@
                   </div>
                 </div> 
                 <p class="goods__hint">Под заказ возможна поставка других толщин с шагом 10 мм. Для подробной консультации обращайтесь к менеджерам.</p>
-                <span class="goods__price">569<span class="rub">&#8399;</span></span><span class="goods__for-one">за упаковку</span><span class="goods__in-stock"><i class="icon-ok"></i>В наличии</span> <!-- <span class="goods__in-stock goods__in-stock_not"><i class="icon-time"></i>Под заказ</span> -->
+                <span class="goods__price">569<span>₽</span></span><span class="goods__for-one">за упаковку</span><span class="goods__in-stock"><i class="icon-ok"></i>В наличии</span> <!-- <span class="goods__in-stock goods__in-stock_not"><i class="icon-time"></i>Под заказ</span> -->
                 <div class="goods__control">
                   <div class="goods__control-wrap">
                       <div class="amounter goods__amounter">
@@ -248,7 +247,7 @@
                       </div>
                       <div class="info-line info-line_bold">
                         <span class="info-line__name">Стоимость</span>
-                        <span class="info-line__value">1395 <span class="rub">&#8399;</span></span>
+                        <span class="info-line__value">1395 <span>₽</span></span>
                       </div>
                     </div>
                   </div><div class="goods__control-wrap">
@@ -416,7 +415,7 @@
                   <span class="catalog__in-stock"><i class="icon-ok"></i>В наличии</span>
                   <span class="catalog__brand">Rockwool</span>
                   <span class="catalog__name">Утеплитель Флор Баттс</span>                  
-                  <span class="catalog__price">от  <b>589</b> <span class="rub">&#8399;</span> / шт.</span>
+                  <span class="catalog__price">от  <b>589</b> <span>₽</span> / шт.</span>
                 </a>
               </div><div class="catalog__item">
                 <a href="#" class="catalog__item-holder">
@@ -426,7 +425,7 @@
                   <span class="catalog__in-stock catalog__in-stock_not"><i class="icon-time"></i>Под заказ</span>
                   <span class="catalog__brand">Rockwool</span>
                   <span class="catalog__name">Утеплитель Лайт Баттс</span>                  
-                  <span class="catalog__price">от  <b>240</b> <span class="rub">&#8399;</span> / шт.</span>
+                  <span class="catalog__price">от  <b>240</b> <span>₽</span> / шт.</span>
                 </a>
               </div><div class="catalog__item">
                 <a href="#" class="catalog__item-holder">
@@ -436,7 +435,7 @@
                   <span class="catalog__in-stock"><i class="icon-ok"></i>В наличии</span>
                   <span class="catalog__brand">Rockwool</span>
                   <span class="catalog__name">Утеплитель Лайт Баттс Скандик XL 100мм</span>                  
-                  <span class="catalog__price">от  <b>325</b> <span class="rub">&#8399;</span> / шт.</span>
+                  <span class="catalog__price">от  <b>325</b> <span>₽</span> / шт.</span>
                 </a>
               </div><div class="catalog__item">
                 <a href="#" class="catalog__item-holder">
@@ -446,7 +445,7 @@
                   <span class="catalog__in-stock"><i class="icon-ok"></i>В наличии</span>
                   <span class="catalog__brand">Rockwool</span>
                   <span class="catalog__name">Утеплитель Акустик Баттс</span>                  
-                  <span class="catalog__price">от  <b>469</b> <span class="rub">&#8399;</span> / шт.</span>
+                  <span class="catalog__price">от  <b>469</b> <span>₽</span> / шт.</span>
                 </a>
               </div><div class="catalog__item">
                 <a href="#" class="catalog__item-holder">
@@ -456,7 +455,7 @@
                   <span class="catalog__in-stock"><i class="icon-ok"></i>В наличии</span>
                   <span class="catalog__brand">Пеноплекс</span>
                   <span class="catalog__name">Утеплитель Пеноплекс Стена</span>                  
-                  <span class="catalog__price"><b>3500</b> <span class="rub">&#8399;</span> / шт.</span>
+                  <span class="catalog__price"><b>3500</b> <span>₽</span> / шт.</span>
                 </a>
               </div><div class="catalog__item">
                 <a href="#" class="catalog__item-holder">
@@ -466,7 +465,7 @@
                   <span class="catalog__in-stock"><i class="icon-ok"></i>В наличии</span>
                   <span class="catalog__brand">Пеноплекс</span>
                   <span class="catalog__name">Утеплитель Пеноплекс Стена</span>                  
-                  <span class="catalog__price"><b>3500</b> <span class="rub">&#8399;</span> / шт.</span>
+                  <span class="catalog__price"><b>3500</b> <span>₽</span> / шт.</span>
                 </a>
               </div><div class="catalog__item">
                 <a href="#" class="catalog__item-holder">
@@ -476,7 +475,7 @@
                   <span class="catalog__in-stock"><i class="icon-ok"></i>В наличии</span>
                   <span class="catalog__brand">Пеноплекс</span>
                   <span class="catalog__name">Утеплитель Пеноплекс Стена</span>                  
-                  <span class="catalog__price"><b>3500</b> <span class="rub">&#8399;</span> / шт.</span>
+                  <span class="catalog__price"><b>3500</b> <span>₽</span> / шт.</span>
                 </a>
               </div>
             </div>
