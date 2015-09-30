@@ -31,12 +31,6 @@ $(function(){
 	$(".amounter__numb").on('blur', function(){
 	  $(this).closest(".amounter").removeClass("amounter_focus");
 	});
-	$(".goods-carou a").click(function(){
-    $(this).closest(".goods-carou").find("a").removeClass("selected");
-    $(this).addClass("selected");
-    $(this).closest(".goods-carou").find(".goods-carou__holder img").attr("src", $(this).find("img").attr("src"));
-    return false;
-  });
 });
 function check_min_amounter(that) {
 	var numb = that.closest(".amounter").find(".amounter__numb");
@@ -69,6 +63,25 @@ $(document).ready(function(){
     type: 'inline',
     fixed:false,
     maxWidth: "100%",
+    title: '',
+    padding: 0,
+    autoResize: false,
+    autoCenter: false,
+    fitToView: false,
+    helpers: {
+      overlay: {
+        fixed: false
+      }
+    }
+  }); 
+  $(".modal-iframe").fancybox({
+    type: 'iframe',
+    wrapCSS: 'frame',
+    fixed: false,
+    maxWidth: 1400,
+    width: '100%',
+    margin: 30,
+    autoHeight: true,
     title: '',
     padding: 0,
     autoResize: false,
