@@ -21,49 +21,42 @@
   <script src="f/js/jquery.scrollTo.min.js"></script>
   <script src="f/js/stickyfill.min.js"></script>
   <script src="f/js/iscroll-lite.js"></script>
+  <script src="f/js/nouislider.min.js"></script>
   <script src="f/js/bootstrap-spinner.min.js"></script>
   <script src="f/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
   <link rel="stylesheet" href="f/css/bootstrap-multiselect.css">
+  <link rel="stylesheet" href="f/css/nouislider.min.css">
   <link rel="stylesheet" href="f/css/main.css">
   <script src="f/js/common.js"></script>
   <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,regular,italic,bold,bolditalic&subset=cyrillic" rel="stylesheet" type="text/css" />
   <link href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,700&subset=cyrillic' rel='stylesheet' type='text/css'>
   <script>
     $(document).ready(function(){
-      $('#brand').multiselect({
-        onChange: function(option, checked, select) {
-          if (!$(option).val()=='') {
-            $(option).closest(".select-form").addClass("active");
-          }
+      var slider = document.getElementById('filter-price');
+      noUiSlider.create(slider, {
+        start: [ 4500, 32500 ], // Handle start position
+        step: 500, // Slider moves in increments of '10'
+        margin: 500, // Handles must be more than '20' apart
+        connect: true, // Display a colored bar between the handles
+        direction: 'ltr', // Put '0' at the bottom of the slider
+        orientation: 'horizontal', // Orient the slider vertically
+        behaviour: 'tap-drag', // Move handle on tap, bar is draggable
+        range: { // Slider can select '0' to '100'
+          'min': 500,
+          'max': 50000
         }
       });
-      $('#country').multiselect({
-        onChange: function(option, checked, select) {
-          if (!$(option).val()=='') {
-            $(option).closest(".select-form").addClass("active");
-          }
+      var valueFrom = document.getElementById('filter-price-from'),
+        valueTo = document.getElementById('filter-price-to');
+
+      // When the slider value changes, update the input and span
+      slider.noUiSlider.on('update', function( values, handle ) {
+        if ( handle ) {
+          valueFrom.innerHTML = values[handle];
+        } else {
+          valueTo.innerHTML = values[handle];
         }
       });
-      $('#price').multiselect({
-        onChange: function(option, checked, select) {
-          if (!$(option).val()=='') {
-            $(option).closest(".select-form").addClass("active");
-          }
-        }
-      });
-      $('.reset-form').on('reset', function() {
-        $(this).find("option:selected").each(function() {
-          $(this).prop('selected', false);
-        });
-        $(this).find("select").multiselect('refresh');
-        $(this).removeClass("active");
-        $(this).find(".dropdown-menu li.dropdown-menu__accept").remove();
-        old_count = 0;
-      });
-      $('.select-form').find("option:selected").each(function() {
-        $(this).prop('selected', false);
-      });
-      $('.select-form').find("select").multiselect('refresh');
     });
   </script>
 </head>
@@ -165,46 +158,30 @@
                     </div>
                     <div class="filter__cell">
                       <div class="filter__holder">
-                        <form class="btn-group reset-form select-form">
-                          <div class="btn-group">
-                            <select id="brand" >
-                              <option value="0">Бренд</option>
-                              <option value="1">Option 1</option>
-                              <option value="2">Option 2</option>
-                              <option value="3">Option 3</option>
-                              <option value="4">Option 4</option>
-                              <option value="5">Option 5</option>
-                              <option value="6">Option 6</option>
-                            </select>
-                            <button type="reset" class="btn-reset"></button>
+                        <div class="filter__item">Бренд<i class="icon-caret"></i>
+                          <div class="filter__item-sub">
+                            <ul class="filter__item-sub-holder">
+                              <li><a href="#">Бренд1</a></li>
+                              <li><a href="#">Бренд2</a></li>
+                              <li><a href="#">Бренд3</a></li>
+                              <li><a href="#">Бренд4</a></li>
+                            </ul>
                           </div>
-                        </form>
-                        <form class="btn-group reset-form select-form">
-                          <div class="btn-group">
-                            <select id="country" >
-                              <option value="0">Страна производитель</option>
-                              <option value="1">Россия</option>
-                              <option value="2">Германия</option>
-                              <option value="3">Швеция</option>
-                              <option value="4">Чехия</option>
-                            </select>
-                            <button type="reset" class="btn-reset"></button>
+                        </div><!-- <div class="filter__item filter__item_active">Бренд<i class="icon-caret"></i>
+                        </div> --><div class="filter__item filter__item_price">Цена<i class="icon-caret"></i>
+                          <div class="filter__item-sub">
+                            <div class="filter__item-sub-holder">
+                              <div id="filter-price" class="filter__price"></div>
+                              <div class="filter__price-num">
+                                <span id="filter-price-to">10</span> <span>₽</span>
+                              </div><div class="filter__price-num filter__price-num_to">
+                                <span id="filter-price-from">0</span> <span>₽</span>
+                              </div>
+                              <div class="filter__apply"><a href="#">Применить</a></div>
+                            </div>
                           </div>
-                        </form>
-                        <form class="btn-group reset-form select-form">
-                          <div class="btn-group">
-                            <select id="price">
-                              <option value="0">Цена</option>
-                              <option value="1">Option 1</option>
-                              <option value="2">Option 2</option>
-                              <option value="3">Option 3</option>
-                              <option value="4">Option 4</option>
-                              <option value="5">Option 5</option>
-                              <option value="6">Option 6</option>
-                            </select>
-                            <button type="reset" class="btn-reset"></button>
-                          </div>
-                        </form>
+                        </div><!-- <div class="filter__item filter__item_active">500 <span>₽</span> - 12 500 <span>₽</span><i class="icon-close"></i>
+                        </div> -->
                       </div>
                     </div>
                     <div class="view-switcher filter__cell">
@@ -220,7 +197,6 @@
                         <span class="catalog__img">
                           <img src="f/i/catalog/1.jpg" alt="">
                         </span>
-                        <span class="catalog__promo">-50%</span>
                         <span class="catalog__in-stock"><i class="icon-ok"></i>В наличии</span>
                         <span class="catalog__brand">Rockwool</span>
                         <span class="catalog__name">Утеплитель Лайт Баттс Скандик</span>

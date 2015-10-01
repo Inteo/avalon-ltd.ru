@@ -89,20 +89,16 @@ $(document).ready(function(){
   $(".catalog-inline").fancybox({
     type: 'inline',
     wrapCSS: 'catalog-popup-wrap',
-    fixed: false,
     width: '100%',
     maxWidth: '100%',
     autoHeight: true,
+    scrolling: 'auto',
+    height: '100%',
     title: '',
     padding: 0,
     autoResize: false,
     autoCenter: false,
     fitToView: false,
-    helpers: {
-      overlay: {
-        fixed: false
-      }
-    }
   });
   $(".catalog").each(function(){
   	var max_height = 0;
