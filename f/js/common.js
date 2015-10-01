@@ -91,6 +91,7 @@ $(document).ready(function(){
     wrapCSS: 'catalog-popup-wrap',
     width: '100%',
     maxWidth: '100%',
+    minWidth: '100%',
     autoHeight: true,
     scrolling: 'auto',
     height: '100%',
