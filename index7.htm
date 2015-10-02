@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="ru"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" href="f/i//favicon.ico">
+  <title>Avalon-Ltd</title>
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+  <script src="f/js/jquery-1.11.3.min.js"></script>
+  <script src="f/js/jquery.carouFredSel-6.2.1-packed.js"></script>
+  <link rel="stylesheet" href="f/fancybox/jquery.fancybox.css?v=2.1.5" media="screen">
+  <script src="f/js/bootstrap.min.js"></script>
+  <script src="f/js/bootstrap-multiselect.js"></script>
+  <script src="f/js/jquery.scrollTo.min.js"></script>
+  <script src="f/js/stickyfill.min.js"></script>
+  <script src="f/js/iscroll-lite.js"></script>
+  <script src="f/js/bootstrap-spinner.min.js"></script>
+  <script src="f/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+  <link rel="stylesheet" href="f/css/bootstrap-multiselect.css">
+  <link rel="stylesheet" href="f/css/main.css">
+  <script src="f/js/common.js"></script>
+  <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,regular,italic,bold,bolditalic&subset=cyrillic" rel="stylesheet" type="text/css" />
+  <link href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,700&subset=cyrillic' rel='stylesheet' type='text/css'>
+  <script>
+    $(document).ready(function(){
+      
+    });
+  </script>
+</head>
+<body>
+  <div class="wrap clearfix">
+    <div class="header-control">
+      <div class="holder clearfix">
+        <form class="select-form city-switch">
+          <div class="btn-group">
+            <select id="city">
+              <option value="0">Ярославль</option>
+              <option value="1">Вологда</option>
+              <option value="2">Череповец</option>
+              <option value="3">Кострома</option>
+              <option value="4">Иваново</option>
+            </select>
+          </div>
+        </form>
+        <div class="header-control__wrap">
+          <ul class="header-control__menu">
+            <li><a href="#">О компании</a></li>
+            <li><a href="#">Оплата и доставка</a></li>
+          </ul><a href="#" class="header-control__person-btn header-control__btn"><i class="icon-key"></i><span class="header-control__btn-text">Личный кабинет</span>
+          </a><a href="#" class="header-control__cart-btn header-control__btn"><i class="icon-cart"></i><span class="header-control__btn-text">Корзина</span><span class="header-control__cart-btn-num">25</span></a>
+        </div>
+      </div>
+    </div>  
+    <header class="header">
+      <div class="header__main">
+        <div class="holder clearfix">
+          <div class="header__logo">
+            <a href="/"><img src="f/i/logo.png" alt=""></a>
+            <p class="header__logo-text">комплексные поставки <br>кровельных и стеновых материалов с 2002 года</p>
+          </div>
+          <div class="header__main-wrap">
+            <a href="#callback" class="header__phone-btn iconize-phone modal-inline">&nbsp;</a>
+            <p class="header__phone"><span>(4852)</span>640-800</p>
+            <ul class="main-menu">
+              <li><a href="#">Услуги</a></li>
+              <li><a href="#">Проекты</a></li>
+              <li><a href="#">Контакты</a></li>
+            </ul>
+            <div class="main-menu-ham iconize-ham">
+              <ul>
+                <li class="main-menu-ham__item"><a href="#">Услуги</a></li>
+                <li class="main-menu-ham__item"><a href="#">Проекты</a></li>
+                <li class="main-menu-ham__item"><a href="#">Контакты</a></li>
+                <li class="header__phone main-menu-ham__item main-menu-ham__item_phone"><span>(4852)</span>640-800</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="content">
+      <section class="goods main">
+        <div class="holder clearfix">
+          <div class="switcher">
+            <div class="main-control">
+              <a href="#" class="main-control__catalog-btn js-scroll-link" data-scrollto="1"><i class="icon-ham"></i>Каталог
+              </a><ul class="switcher__control switcher__control_deactive main-control__switcher switcher__control_gray">
+                <li class="switcher__btn"><a href="#">Скидки</a>
+                </li><li class="switcher__btn"><a href="#">Акции</a></li>
+              </ul>
+              <div class="main-control__search">
+                <form action="" class="main-control__search-form">
+                  <button id="search-btn" class="main-control__search-btn iconize-lens"></button><div class="main-control__search-wrap"><input class="main-control__search-input" id="search-input" type="search" value="" placeholder="Поиск"/></div>
+                </form>
+              </div>
+              <ul class="switcher__control switcher__control_deactive main-control__switcher main-control__switcher_2 switcher__control_gray">
+                <li class="switcher__btn"><a href="#">Скидки</a>
+                </li><li class="switcher__btn"><a href="#">Акции</a></li>
+              </ul>
+            </div>
+          </div>
+          <ul class="breadcrumbs">
+            <li><a href="#">Главная</a><i class="icon-right-arrow"></i></li><li><a href="#">Каталог</a><i class="icon-right-arrow"></i></li><li><a href="#">Теплоизоляция</a><i class="icon-right-arrow"></i></li><li><a href="#">Каркасные стены</a><i class="icon-right-arrow"></i></li>
+          </ul>
+          <h1 class="main-title">Утеплитель «Лайт Баттс»</h1>
+          <div class="goods__wrap" style="margin-bottom: 0;">
+            <div class="goods__holder">
+              <ol>
+                <li>Долговечность</li>
+                <li>Пожаробезопасность</li>
+                <li>Экологичность</li>
+              </ol>
+              <br>
+              <input type="checkbox" name="check" id="ch1">
+              <label for="ch1">Пожаробезопасность</label>
+              <br>
+              <br>
+              <br>
+              <input type="radio" name="radio" id="r1" checked>
+              <label for="r1">Долговечность</label> <br><br>
+              <input type="radio" name="radio" id="r2">
+              <label for="r2">Пожаробезопасность</label><br><br>
+              <input type="radio" name="radio" id="r3">
+              <label for="r3">Экологичность</label>
+            </div>
+          </div>
+          <br><br><br>
+              <div class="service-btn" style="margin-bottom: 50px;">
+                <div class="service-btn__holder">
+                  <div class="service-btn__item">
+                    <a href="#">
+                      <span class="service-btn__img">
+                        <img src="f/i/project1.jpg" alt="">
+                      </span><span class="service-btn__info">
+                        <span class="service-btn__title">Утепление и декорирование цоколя дома</span>
+                        <span class="service-btn__text">Цоколем называют нижнюю часть наружной стены здания, а также верхнюю.</span>
+                      </span>
+                    </a>
+                  </div><div class="service-btn__item">
+                    <a href="#">
+                      <span class="service-btn__img">
+                        <img src="f/i/project1.jpg" alt="">
+                      </span><span class="service-btn__info">
+                        <span class="service-btn__title">Утепление и декорирование цоколя дома</span>
+                        <span class="service-btn__text">Цоколем называют нижнюю часть наружной стены здания, а также верхнюю.</span>
+                      </span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+        </div>
+      </section>
+    </div>
+  </div> 
+  <footer class="footer">
+    <div class="holder clearfix">
+      <div class="footer__line">
+        <div class="footer__catalog">
+          <div class="footer__holder">
+            <div class="footer__wrap">
+              <p class="footer__title"><a href="#">Каталог</a></p>
+              <div class="footer__col">
+                <p class="footer__subtitle">По материалам</p>
+                <ul>
+                  <li><a href="#">Кровельные материалы</a></li>
+                  <li><a href="#">Стеновые материалы</a></li>
+                  <li><a href="#">Теплоизоляция</a></li>
+                  <li><a href="#">Гидроизоляция</a></li>
+                  <li><a href="#">Паро-, ветро-, влагозащита</a></li>
+                  <li><a href="#">Звукоизоляция</a></li>
+                  <li><a href="#">Огнезащита и техническая изоляция</a></li>
+                  <li><a href="#">Специальные предложения</a></li>
+                </ul>
+              </div><div class="footer__col">
+                <p class="footer__subtitle">По конструкциям</p>
+                <ul>
+                  <li><a href="#">Кровля</a></li>
+                  <li><a href="#">Стена</a></li>
+                  <li><a href="#">Фундамент</a></li>
+                </ul>
+              </div><div class="footer__col">
+                <p class="footer__subtitle">По брендам</p>
+                <ul>
+                  <li><a href="#">Rockwool</a></li>
+                  <li><a href="#">Icopal</a></li>
+                  <li><a href="#">Ruukki</a></li>
+                  <li><a href="#">Velux</a></li>
+                  <li><a href="#">Juta</a></li>
+                  <li><a href="#">Пеноплекс</a></li>
+                  <li><a href="#">Аквастоп</a></li>
+                </ul>
+                <a href="#" class="footer__brands">Все бренды →</a>
+              </div>
+            </div>
+          </div>
+        </div><div class="footer__col">
+          <div class="footer__holder">
+            <p class="footer__title"><a href="#">Услуги</a></p>
+            <ul>
+              <li><a href="#">Консультация</a></li>
+              <li><a href="#">Расчет</a></li>
+              <li><a href="#">Комплексная поставка</a></li>
+              <li><a href="#">Доставка</a></li>
+              <li><a href="#">Монтаж</a></li>
+              <li><a href="#">Гарантийное и постгарантийное обслуживание</a></li>
+            </ul>
+          </div>
+        </div><div class="footer__col">
+          <div class="footer__holder">
+            <p class="footer__title"><a href="#">Контакты</a></p>
+            <ul>
+              <li class="footer__phone">Ярославль  <b>(4852)</b> <span>640-800</span></li>
+              <li class="footer__phone">Вологда  <b>(8172)</b> <span>578-530</span></li>
+              <li class="footer__phone">Череповец  <b>(8202)</b> <span>253-281</span></li>
+              <li class="footer__phone">Кострома  <b>(4942)</b> <span>520-501</span></li>
+              <li class="footer__phone">Иваново  <b>(4932)</b> <span>260-070</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer__line">
+        <div class="footer__col">
+          <div class="footer__holder">
+            <p class="footer__title"><a href="#">О компании</a></p>
+            <a href="#" class="footer__link">Лицензии и сертификаты</a>
+          </div>
+        </div><div class="footer__col">
+          <div class="footer__holder">
+            <p class="footer__title"><a href="#">Проекты</a></p>
+          </div> 
+        </div><div class="footer__col">
+          <div class="footer__holder">
+            <p class="footer__title"><a href="#">Доставка и оплата</a></p>
+          </div>   
+        </div><div class="footer__col">
+          <div class="footer__holder">
+            <p class="footer__title"><a href="#">Статьи</a></p>
+          </div>
+        </div><div class="footer__col footer__col_subs">
+          <div class="footer__holder">
+            <p class="footer__title"><a href="#">Подписка</a></p>
+            <form action="" class="footer__subs-form">
+              <button id="subscribe-btn" class="footer__subs-btn iconize-ok"></button><div class="footer__subs-wrap"><input class="footer__subs" id="subscribe-input" type="email" value="" placeholder="Ваш E-mail"/></div>
+            </form>
+          </div> 
+        </div>
+      </div>
+      <div class="footer__line footer__line_madeby">
+        <p class="made-by">Создание сайта<a class="icon-inteo" target="_blank" rel="external nofollow" href="http://inteo-s.ru"></a></p>
+      </div>
+    </div>
+  </footer> 
+  <div class="popups">
+    <div class="popup" id="callback">
+      <p class="popup__title">Обратный звонок</p>
+      <div class="popup__inputs">
+        <div class="popup__input">
+          <input type="text" class="input" placeholder="Представьтесь, пожалуйста">
+        </div>
+        <div class="popup__input">
+          <input type="tel" class="input input_verif input_error" placeholder="Телефон">
+          <span class="input-verif input-verif_error"></span>
+        </div>
+        <div class="popup__input">
+          <input type="email" class="input input_verif input_success" placeholder="Электронная почта">
+          <span class="input-verif input-verif_success"></span>
+        </div>
+      </div>
+      <div class="popup__btn">
+        <a href="#" class="orange-btn">Отправить</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
