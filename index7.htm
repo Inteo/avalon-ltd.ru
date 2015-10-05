@@ -30,7 +30,20 @@
   <link href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,700&subset=cyrillic' rel='stylesheet' type='text/css'>
   <script>
     $(document).ready(function(){
-      
+      function onCreate() {
+        $(window).on('resize', onResize).trigger('resize');
+      }
+      var $projects = $('.service-btn__holder');
+      function onResize() {
+        if($(window).width() > 1199) {
+          var heights = $projects.children('.service-btn__item').map(function() { return $(this).height(); });
+          $projects.find('.service-btn__info').height(Math.max.apply(null, heights) - 60);
+        }
+      }
+      window.onload = function()
+      {
+        onResize();
+      }
     });
   </script>
 </head>
@@ -135,23 +148,31 @@
               <div class="service-btn" style="margin-bottom: 50px;">
                 <div class="service-btn__holder">
                   <div class="service-btn__item">
-                    <a href="#">
-                      <span class="service-btn__img">
-                        <img src="f/i/project1.jpg" alt="">
-                      </span><span class="service-btn__info">
-                        <span class="service-btn__title">Утепление и декорирование цоколя дома</span>
-                        <span class="service-btn__text">Цоколем называют нижнюю часть наружной стены здания, а также верхнюю.</span>
-                      </span>
-                    </a>
+                    <div class="service-btn__item-wrap">
+                      <div class="service-btn__item-holder">
+                        <a href="#">
+                          <span class="service-btn__img">
+                            <img src="f/i/project1.jpg" alt="">
+                          </span><span class="service-btn__info">
+                            <span class="service-btn__title">Утепление и декорирование цоколя дома</span>
+                            <span class="service-btn__text">Цоколем называют нижнюю часть наружной стены здания, а также верхнюю.</span>
+                          </span>
+                        </a>
+                      </div>
+                    </div>
                   </div><div class="service-btn__item">
-                    <a href="#">
-                      <span class="service-btn__img">
-                        <img src="f/i/project1.jpg" alt="">
-                      </span><span class="service-btn__info">
-                        <span class="service-btn__title">Утепление и декорирование цоколя дома</span>
-                        <span class="service-btn__text">Цоколем называют нижнюю часть наружной стены здания, а также верхнюю.</span>
-                      </span>
-                    </a>
+                    <div class="service-btn__item-wrap">
+                      <div class="service-btn__item-holder">
+                        <a href="#">
+                          <span class="service-btn__img">
+                            <img src="f/i/project1.jpg" alt="">
+                          </span><span class="service-btn__info">
+                            <span class="service-btn__title">Теплые стены</span>
+                            <span class="service-btn__text">По расчетам отечественных специалистов тепловые потери через наружные стены зданий составляют от 25 до 40% от общих теплопотерь зданий.</span>
+                          </span>
+                        </a>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>

@@ -7800,37 +7800,73 @@ button:hover:before {
 		display: inline-block;
 		vertical-align: top;
 		padding-left: 40px;
+		border-radius: 4px;
+		margin-bottom: 30px;
+		@media @small {
+			width: 100%;
+			display: block;
+		}
 		& a {
+			background: #fff;
 			border-radius: 4px;
 			display: block;
-			background: #fff;
+			overflow: hidden;
+			&:hover {
+				-webkit-box-shadow: 0px 6px 9px 0px #cfd8dc;
+				-moz-box-shadow:    0px 6px 9px 0px #cfd8dc;
+				box-shadow:         0px 6px 9px 0px #cfd8dc;
+			}
+		}
+		&-wrap {
+			display: table;
+			width: 100%;
+		}
+		&-holder {
+			display: table-row;
+			width: 100%;
 		}
 	}
-	&__img { // делать таблицей
+	&__img { 
 		background: #eceff1;
 		width: 220px;
-		float: left;
-		display: block;
+		vertical-align: top;
+		display: table-cell;
 		position: relative;
-		height: 220px;
 		overflow: hidden;
-		border-radius: 4px 0 0 4px;
+		height: 100%;
+		@media @mobile {
+			display: block;
+			width: 100%;
+	
+		}
 		& img {
 			height: 100%;
 			position: absolute;
 			left: 0;
 			top: 0;
+			@media @mobile {
+				width: 100%;
+				height: auto;
+				position: relative;
+			}
 		}
 	}
 	&__info {
-		overflow: hidden;
-		padding: 10px 20px 15px;
-		display: block;
+		padding: 30px;
+		display: table-cell;
+		vertical-align: top;
+		text-align: left;
+		@media @mobile {
+			display: block;
+			width: 100%;
+		}
 	}
 	&__title {
 		font-weight: bold;
 		line-height: 30px;
 		display: block;
+		color: @blue;
+		margin-bottom: 10px;
 	}
 	a:hover &__title {
 		color: @orange;

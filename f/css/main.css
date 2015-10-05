@@ -8084,21 +8084,48 @@ a.services__item:hover .services__detail {
   display: inline-block;
   vertical-align: top;
   padding-left: 40px;
+  border-radius: 4px;
+  margin-bottom: 30px;
+}
+@media (max-width: 1199px) {
+  .service-btn__item {
+    width: 100%;
+    display: block;
+  }
 }
 .service-btn__item a {
+  background: #fff;
   border-radius: 4px;
   display: block;
-  background: #fff;
+  overflow: hidden;
+}
+.service-btn__item a:hover {
+  -webkit-box-shadow: 0px 6px 9px 0px #cfd8dc;
+  -moz-box-shadow: 0px 6px 9px 0px #cfd8dc;
+  box-shadow: 0px 6px 9px 0px #cfd8dc;
+}
+.service-btn__item-wrap {
+  display: table;
+  width: 100%;
+}
+.service-btn__item-holder {
+  display: table-row;
+  width: 100%;
 }
 .service-btn__img {
   background: #eceff1;
   width: 220px;
-  float: left;
-  display: block;
+  vertical-align: top;
+  display: table-cell;
   position: relative;
-  height: 220px;
   overflow: hidden;
-  border-radius: 4px 0 0 4px;
+  height: 100%;
+}
+@media (max-width: 767px) {
+  .service-btn__img {
+    display: block;
+    width: 100%;
+  }
 }
 .service-btn__img img {
   height: 100%;
@@ -8106,15 +8133,31 @@ a.services__item:hover .services__detail {
   left: 0;
   top: 0;
 }
+@media (max-width: 767px) {
+  .service-btn__img img {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+}
 .service-btn__info {
-  overflow: hidden;
-  padding: 10px 20px 15px;
-  display: block;
+  padding: 30px;
+  display: table-cell;
+  vertical-align: top;
+  text-align: left;
+}
+@media (max-width: 767px) {
+  .service-btn__info {
+    display: block;
+    width: 100%;
+  }
 }
 .service-btn__title {
   font-weight: bold;
   line-height: 30px;
   display: block;
+  color: #004a73;
+  margin-bottom: 10px;
 }
 a:hover .service-btn__title {
   color: #f44336;
