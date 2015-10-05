@@ -97,8 +97,8 @@
 	height: 55px;
 	cursor: pointer;
 	z-index: 8040;
-background: rgba(255,255,255,.5) url(../../f/i/icons.png) 0 -76px no-repeat;
-border:0!important;
+background: url(../../f/i/icons.png) 0 -76px no-repeat;
+border: none;
 }
 
 .fancybox-close:hover {
@@ -182,7 +182,7 @@ background-position:-55px -76px;
 	overflow: hidden;
 	display: none;
 	z-index: 8010;
-	background: url('fancybox_overlay.png');
+	background: rgba(35, 37, 40, 0.9);
 }
 
 .fancybox-overlay-fixed {
