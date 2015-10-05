@@ -21,17 +21,42 @@
   <script src="f/js/jquery.scrollTo.min.js"></script>
   <script src="f/js/stickyfill.min.js"></script>
   <script src="f/js/iscroll-lite.js"></script>
+  <script src="f/js/nouislider.min.js"></script>
   <script src="f/js/bootstrap-spinner.min.js"></script>
   <script src="f/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
   <link rel="stylesheet" href="f/css/bootstrap-multiselect.css">
+  <link rel="stylesheet" href="f/css/nouislider.min.css">
   <link rel="stylesheet" href="f/css/main.css">
   <script src="f/js/common.js"></script>
   <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,regular,italic,bold,bolditalic&subset=cyrillic" rel="stylesheet" type="text/css" />
   <link href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,700&subset=cyrillic' rel='stylesheet' type='text/css'>
-  <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic&subset=all" rel="stylesheet" type="text/css" />
   <script>
     $(document).ready(function(){
-      
+      var slider = document.getElementById('filter-price');
+      noUiSlider.create(slider, {
+        start: [ 4500, 32500 ], // Handle start position
+        step: 500, // Slider moves in increments of '10'
+        margin: 500, // Handles must be more than '20' apart
+        connect: true, // Display a colored bar between the handles
+        direction: 'ltr', // Put '0' at the bottom of the slider
+        orientation: 'horizontal', // Orient the slider vertically
+        behaviour: 'tap-drag', // Move handle on tap, bar is draggable
+        range: { // Slider can select '0' to '100'
+          'min': 500,
+          'max': 50000
+        }
+      });
+      var valueFrom = document.getElementById('filter-price-from'),
+        valueTo = document.getElementById('filter-price-to');
+
+      // When the slider value changes, update the input and span
+      slider.noUiSlider.on('update', function( values, handle ) {
+        if ( handle ) {
+          valueFrom.innerHTML = values[handle];
+        } else {
+          valueTo.innerHTML = values[handle];
+        }
+      });
     });
   </script>
 </head>
@@ -91,7 +116,7 @@
         <div class="holder clearfix">
           <div class="switcher">
             <div class="main-control">
-              <a href="#" class="main-control__catalog-btn js-scroll-link" data-scrollto="1"><i class="icon-ham"></i>Каталог
+              <a href="#catalog-popup" class="main-control__catalog-btn catalog-inline"><i class="icon-ham"></i>Каталог
               </a><ul class="switcher__control switcher__control_deactive main-control__switcher switcher__control_gray">
                 <li class="switcher__btn"><a href="#">Скидки</a>
                 </li><li class="switcher__btn"><a href="#">Акции</a></li>
@@ -113,17 +138,58 @@
           <h1 class="main-title">Теплоизоляция стен</h1>
           <div class="main__table">
             <div class="main__row">
-              <div class="main__menu main__cell catalog-menu">
-                <p class="catalog-menu__title">Подкатегории</p>
-                <ul class="catalog-menu__list">
-                  <li class="catalog-menu__item"><a href="#">Вентилируемый фасад</a></li>
-                  <li class="catalog-menu__item"><a href="#">Фасад с штукатурным слоем</a></li>
-                  <li class="catalog-menu__item"><a href="#">Трехслойные кладки</a></li>
-                  <li class="catalog-menu__item catalog-menu__item_active"><a href="#">Каркасные стены</a></li>
-                  <li class="catalog-menu__item"><a href="#">Внутреннее утепление</a></li>
-                  <li class="catalog-menu__item"><a href="#">Крепеж для фасадов</a></li>
-                </ul>
+              <div class="main__menu main__cell">
+                <div class="catalog-menu">
+                  <p class="catalog-menu__title">Подкатегории</p>
+                  <ul class="catalog-menu__list">
+                    <li class="catalog-menu__item"><a href="#">Вентилируемый фасад</a></li>
+                    <li class="catalog-menu__item"><a href="#">Фасад с штукатурным слоем</a></li>
+                    <li class="catalog-menu__item"><a href="#">Трехслойные кладки</a></li>
+                    <li class="catalog-menu__item catalog-menu__item_active"><a href="#">Каркасные стены</a></li>
+                    <li class="catalog-menu__item"><a href="#">Внутреннее утепление</a></li>
+                    <li class="catalog-menu__item"><a href="#">Крепеж для фасадов</a></li>
+                  </ul>
+                </div>
               </div><div class="main__content main__cell">
+                <div class="filter">
+                  <div class="filter__row">
+                    <div class="filter__cell filter__cell_title">
+                      <span class="filter__title">Фильтр</span>
+                    </div>
+                    <div class="filter__cell">
+                      <div class="filter__holder">
+                        <div class="filter__item">Бренд<i class="icon-caret"></i>
+                          <div class="filter__item-sub">
+                            <ul class="filter__item-sub-holder">
+                              <li><a href="#">Бренд1</a></li>
+                              <li><a href="#">Бренд2</a></li>
+                              <li><a href="#">Бренд3</a></li>
+                              <li><a href="#">Бренд4</a></li>
+                            </ul>
+                          </div>
+                        </div><!-- <div class="filter__item filter__item_active">Бренд<i class="icon-caret"></i>
+                        </div> --><div class="filter__item filter__item_price">Цена<i class="icon-caret"></i>
+                          <div class="filter__item-sub">
+                            <div class="filter__item-sub-holder">
+                              <div id="filter-price" class="filter__price"></div>
+                              <div class="filter__price-num">
+                                <span id="filter-price-to">10</span> <span>₽</span>
+                              </div><div class="filter__price-num filter__price-num_to">
+                                <span id="filter-price-from">0</span> <span>₽</span>
+                              </div>
+                              <div class="filter__apply"><a href="#">Применить</a></div>
+                            </div>
+                          </div>
+                        </div><!-- <div class="filter__item filter__item_active">500 <span>₽</span> - 12 500 <span>₽</span><i class="icon-close"></i>
+                        </div> -->
+                      </div>
+                    </div>
+                    <div class="view-switcher filter__cell">
+                      <span class="view-switcher__item view-switcher__item_active view-switcher__item_tiles iconize-tiles">
+                      </span><a href="#" class="view-switcher__item view-switcher__item_list iconize-list"></a>
+                    </div>
+                  </div>
+                </div>
                 <div class="catalog catalog_tight">
                   <div class="catalog__holder">
                     <div class="catalog__item catalog__item_dbl">
@@ -131,7 +197,6 @@
                         <span class="catalog__img">
                           <img src="f/i/catalog/1.jpg" alt="">
                         </span>
-                        <span class="catalog__promo">-50%</span>
                         <span class="catalog__in-stock"><i class="icon-ok"></i>В наличии</span>
                         <span class="catalog__brand">Rockwool</span>
                         <span class="catalog__name">Утеплитель Лайт Баттс Скандик</span>
@@ -178,6 +243,13 @@
                         <span class="catalog__name">Утеплитель Акустик Баттс</span>                  
                         <span class="catalog__price">от  <b>469</b> <span>₽</span> / шт.</span>
                       </a>
+                    </div><div class="catalog__item catalog__item_spec">
+                      <a href="#" class="catalog__item-holder">
+                        <span class="catalog__back"><img src="f/i/catalog/10.jpg" alt=""></span>
+                        <img src="f/i/brands/9.png" class="catalog__brand"></img>
+                        <span class="catalog__title">Монтаж утеплителя</span>
+                        <span class="catalog__text">профессионально, качественно и точно в срок</span>
+                      </a>
                     </div><div class="catalog__item">
                       <a href="#" class="catalog__item-holder">
                         <span class="catalog__img">
@@ -211,6 +283,14 @@
                     </div>
                   </div>
                 </div>
+                <ul class="pager">
+                  <li class="disabled"><span>1</span>
+                  </li><li><a href="#">2</a>
+                  </li><li><a href="#">3</a>
+                  </li><li><a href="#">4</a>
+                  </li><li><a href="#">5</a>
+                  </li><li><a href="#">...</a></li>
+                </ul>
               </div>
             </div>
           </div>
@@ -336,6 +416,163 @@
         <a href="#" class="orange-btn">Отправить</a>
       </div>
     </div>
+  </div>
+  <div class="catalog-popup" id="catalog-popup">
+    <section class="catalog-list">
+      <div class="holder">
+        <div class="switcher">
+          <ul class="switcher__control switcher__control_orange switcher__control_wide catalog-list__switcher">
+            <li class="switcher__btn switcher__btn_active"><a href="#">По материалам</a>
+            </li><li class="switcher__btn"><a href="#">По конструкциям</a>
+            </li><li class="switcher__btn"><a href="#">По брендам</a></li>
+          </ul>
+          <div class="switcher__holder catalog-list__holder switcher__holder_active">
+            <div class="catalog-list__item">
+              <div class="catalog-list__img">
+                <img src="f/i/catalog-list/1.png" alt="">
+              </div>
+              <p class="catalog-list__section">Кровельные <br> материалы</p>
+              <ul class="catalog-list__links">
+                <li><a href="#">Скатные кровли</a></li>
+                <li><a href="#">Мансардные окна</a></li>
+                <li><a href="#">Плоские кровли</a></li>
+                <li><a href="#">Дымоудаление и зенитные фонари</a></li>
+              </ul>
+            </div><div class="catalog-list__item">
+              <div class="catalog-list__img">
+                <img src="f/i/catalog-list/2.png" alt="">
+              </div>
+              <p class="catalog-list__section">Стеновые <br> материалы</p>
+              <ul class="catalog-list__links">
+                <li><a href="#">Кирпич</a></li>
+                <li><a href="#">Сэндвич панели</a></li>
+                <li><a href="#">Вентилируемые фасады</a></li>
+                <li><a href="#">Сайдинг</a></li>
+              </ul>
+            </div><div class="catalog-list__item">
+              <div class="catalog-list__img">
+                <i class="catalog-list__icon icon-sun"></i>
+                <img src="f/i/catalog-list/3.png" alt="">
+              </div>
+              <p class="catalog-list__section">Теплоизоляция</p>
+              <ul class="catalog-list__links">
+                <li><a href="#">Кровля</a></li>
+                <li><a href="#">Стена</a></li>
+                <li><a href="#">Пол</a></li>
+                <li><a href="#">Фундамент</a></li>
+              </ul>
+            </div><div class="catalog-list__item">
+              <div class="catalog-list__img">
+                <i class="catalog-list__icon icon-drop"></i>
+                <img src="f/i/catalog-list/4.png" alt="">
+              </div>
+              <p class="catalog-list__section">Гидроизоляция</p>
+              <ul class="catalog-list__links">
+                <li><a href="#">Гидроизоляция фундамента</a></li>
+                <li><a href="#">Гидроизоляционные шпонки и бентонитовый шнур</a></li>
+                <li><a href="#">Деформационные швы</a></li>
+                <li><a href="#">Гидроизоляция мостов</a></li>
+              </ul>
+            </div><div class="catalog-list__item">
+              <div class="catalog-list__img">
+                <i class="catalog-list__icon icon-steam"></i>
+                <img src="f/i/catalog-list/5.png" alt="">
+              </div>
+              <p class="catalog-list__section">Паро-, ветро-, <br> влагозащита</p>
+              <ul class="catalog-list__links">
+                <li><a href="#">Подкровельные мембраны</a></li>
+                <li><a href="#">Пароизоляция</a></li>
+                <li><a href="#">Ветровлагозащита</a></li>
+              </ul>
+            </div><div class="catalog-list__item">
+              <div class="catalog-list__img">
+                <i class="catalog-list__icon icon-sound"></i>
+                <img src="f/i/catalog-list/6.png" alt="">
+              </div>
+              <p class="catalog-list__section">Звукоизоляция</p>
+              <ul class="catalog-list__links">
+                <li><a href="#">Перегородок</a></li>
+                <li><a href="#">Перекрытий</a></li>
+              </ul>
+            </div><div class="catalog-list__item">
+              <div class="catalog-list__img">
+                <i class="catalog-list__icon icon-fire"></i>
+                <img src="f/i/catalog-list/7.png" alt="">
+              </div>
+              <p class="catalog-list__section">Огнезащита <br> и техническая <br> изоляция</p>
+              <ul class="catalog-list__links">
+                <li><a href="#">Огнезащита</a></li>
+                <li><a href="#">Техническая изоляция</a></li>
+              </ul>
+            </div><div class="catalog-list__item">
+              <div class="catalog-list__img">
+                <i class="catalog-list__icon icon-percent"></i>
+                <img src="f/i/catalog-list/8.png" alt="">
+              </div>
+              <p class="catalog-list__section catalog-list__section_spec">Специальные  <br>предложения</p>
+              <ul class="catalog-list__links">
+                <li><a href="#">Акции</a></li>
+                <li><a href="#">Скидки</a></li>
+              </ul>
+            </div>           
+          </div>
+          <div class="switcher__holder catalog-list__holder">
+            <div class="catalog-list__item">
+              <div class="catalog-list__img">
+                <img src="f/i/catalog-list/9.png" alt="">
+              </div>
+              <p class="catalog-list__section">Кровля</p>
+              <ul class="catalog-list__links">
+                <li><a href="#">Скатная</a></li>
+                <li><a href="#">Плоская</a></li>
+              </ul>
+            </div><div class="catalog-list__item">
+              <div class="catalog-list__img">
+                <img src="f/i/catalog-list/10.png" alt="">
+              </div>
+              <p class="catalog-list__section">Стены</p>
+              <ul class="catalog-list__links">
+                <li><a href="#">Сэндвич-панели</a></li>
+                <li><a href="#">Штукатурный фасад</a></li>
+                <li><a href="#">Вентилируемый фасад</a></li>
+                <li><a href="#">Кирпич</a></li>
+                <li><a href="#">Трехслойная кладка</a></li>
+                <li><a href="#">Каркасные стены</a></li>
+              </ul>
+            </div><div class="catalog-list__item">
+              <div class="catalog-list__img">
+                <img src="f/i/catalog-list/11.png" alt="">
+              </div>
+              <p class="catalog-list__section">Фундамент</p>
+              <ul class="catalog-list__links">
+                <li><a href="#">Гидроизоляция</a></li>
+                <li><a href="#">Гидроизоляция с утеплением</a></li>
+                <li><a href="#">Гидрошпонки</a></li>
+              </ul>
+            </div>          
+          </div>
+          <div class="switcher__holder catalog-list__holder catalog-list__holder_brand brand">
+            <a href="#" class="brand__item">
+              <img src="f/i/brands/1.png" alt="">
+            </a><a href="#" class="brand__item">
+              <img src="f/i/brands/2.png" alt="">
+            </a><a href="#" class="brand__item">
+              <img src="f/i/brands/3.png" alt="">
+            </a><a href="#" class="brand__item">
+              <img src="f/i/brands/4.png" alt="">
+            </a><a href="#" class="brand__item">
+              <img src="f/i/brands/5.png" alt="">
+            </a><a href="#" class="brand__item">
+              <img src="f/i/brands/6.png" alt="">
+            </a><a href="#" class="brand__item">
+              <img src="f/i/brands/7.png" alt="">
+            </a><a href="#" class="brand__item">
+              <img src="f/i/brands/8.png" alt="">
+            </a>         
+          </div>
+        </div>
+      </div>
+    </section>
   </div>
 </body>
 </html>

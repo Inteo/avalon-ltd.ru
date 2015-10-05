@@ -30,33 +30,20 @@
   <link href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,700&subset=cyrillic' rel='stylesheet' type='text/css'>
   <script>
     $(document).ready(function(){
-      var res = 5;
-      switch(true) {
-        case ($(window).width() <= 479):
-          res = 1;
-          break;
-        case ($(window).width() <= 767):
-          res = 2;
-          break;
-        case ($(window).width() <= 991):
-          res = 3;
-          break;
-        case ($(window).width() <= 1199):
-          res = 4;
-          break;
-      } 
       var accom_slider = $('.goods__accom .catalog__holder');
       accom_slider.carouFredSel({
         responsive: true,
-        items: res,
+        items : { 
+          visible : {
+            min : 1,
+            max : 5
+          }
+        }, 
         auto: false,
         width: "100%",
         height: "auto",
         prev: ".catalog__arrow_left",
         next: ".catalog__arrow_right",
-        /*scroll: {
-          fx: 'crossfade',
-        }*/
       });
       $(".goods__accom .caroufredsel_wrapper").width($(".goods__accom .caroufredsel_wrapper").width() + 20);
       $(".goods__accom .caroufredsel_wrapper").height($(".goods__accom .caroufredsel_wrapper").height() + 20);
@@ -279,13 +266,13 @@
                     </div>
                     <p class="goods__subtitle">Преимущества продукта:</p>
                     <div class="goods__marked">
-                      <ul class="marked-list">
+                      <ul>
                         <li>Технология Флекси – пружинящий край</li>
                         <li>Плотное примыкание плит – отсутствие мостиков холода</li>
                         <li>Упощенный монтаж плит</li>
                       </ul>
                     </div><div class="goods__marked">
-                      <ul class="marked-list">
+                      <ul>
                         <li>Долговечность</li>
                         <li>Пожаробезопасность</li>
                         <li>Экологичность</li>
@@ -387,8 +374,14 @@
                     </div>
                   </div>
                   <div class="switcher__holder">
-                    <p><a href="#" class="download-link iconize-download">Лайт Баттс Скандик<span>0,5 Мб</span></a></p>
-                    <a href="#" class="download-link iconize-download">Инструкция по хранению<span>1,4 Мб</span></a>
+                    <div class="file">
+                      <p class="file__title"><a href="#">Лайт Баттс Скандик</a></p>
+                      <p class="file__size">0,5 Мб</p>
+                    </div>
+                    <div class="file">
+                      <p class="file__title"><a href="#">Инструкция по хранению</a></p>
+                      <p class="file__size">1,4 Мб</p>
+                    </div>
                   </div>
                 </div>
               </div>

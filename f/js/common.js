@@ -12,13 +12,6 @@ $(function(){
 			return false;
 		}
 	});
-	$(".js-scroll-link").click(function(){
-  	if(!$(this).hasClass("active")) {
-	    var scrollTo = $(this).data("scrollto"),
-	    scrollTarget = $('*[data-scrollto="'+scrollTo+'"].js-scroll-target');
-	    $.scrollTo(scrollTarget, 350, {offset: 30});
-  	}
-  });
   $(".main-control__search-input").on('focus', function(){
     $(this).closest(".main-control__search").find(".main-control__search-btn").addClass("main-control__search-btn_focus");
   });
@@ -93,6 +86,21 @@ $(document).ready(function(){
       }
     }
   }); 
+  $(".catalog-inline").fancybox({
+    type: 'inline',
+    wrapCSS: 'catalog-popup-wrap',
+    width: '100%',
+    maxWidth: '100%',
+    minWidth: '100%',
+    autoHeight: true,
+    scrolling: 'auto',
+    height: '100%',
+    title: '',
+    padding: 0,
+    autoResize: false,
+    autoCenter: false,
+    fitToView: false,
+  });
   $(".catalog").each(function(){
   	var max_height = 0;
   	var that = $(this);
